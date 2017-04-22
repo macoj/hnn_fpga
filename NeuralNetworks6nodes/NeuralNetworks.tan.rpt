@@ -1,0 +1,872 @@
+Classic Timing Analyzer report for NeuralNetworks
+Tue May 31 11:09:24 2011
+Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Timing Analyzer Summary
+  3. Timing Analyzer Settings
+  4. Clock Settings Summary
+  5. Parallel Compilation
+  6. Clock Setup: 'clk'
+  7. tsu
+  8. tco
+  9. th
+ 10. Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Summary                                                                                                                                                       ;
++------------------------------+-------+---------------+----------------------------------+----------------------+-----------------------+------------+----------+--------------+
+; Type                         ; Slack ; Required Time ; Actual Time                      ; From                 ; To                    ; From Clock ; To Clock ; Failed Paths ;
++------------------------------+-------+---------------+----------------------------------+----------------------+-----------------------+------------+----------+--------------+
+; Worst-case tsu               ; N/A   ; None          ; 8.954 ns                         ; rst                  ; Neuron:T6|calcsum[31] ; --         ; clk      ; 0            ;
+; Worst-case tco               ; N/A   ; None          ; 7.099 ns                         ; Neuron:T2|y          ; ya2                   ; clk        ; --       ; 0            ;
+; Worst-case th                ; N/A   ; None          ; -2.943 ns                        ; rst                  ; Neuron:T6|input[4]    ; --         ; clk      ; 0            ;
+; Clock Setup: 'clk'           ; N/A   ; None          ; 63.05 MHz ( period = 15.860 ns ) ; Neuron:T6|calcsum[0] ; Neuron:T6|csum[16]    ; clk        ; clk      ; 0            ;
+; Total number of failed paths ;       ;               ;                                  ;                      ;                       ;            ;          ; 0            ;
++------------------------------+-------+---------------+----------------------------------+----------------------+-----------------------+------------+----------+--------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Timing Analyzer Settings                                                                                                                            ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Option                                                                                               ; Setting            ; From ; To ; Entity Name ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+; Device Name                                                                                          ; EP2S15F672I4       ;      ;    ;             ;
+; Timing Models                                                                                        ; Final              ;      ;    ;             ;
+; Default hold multicycle                                                                              ; Same as Multicycle ;      ;    ;             ;
+; Cut paths between unrelated clock domains                                                            ; On                 ;      ;    ;             ;
+; Cut off read during write signal paths                                                               ; On                 ;      ;    ;             ;
+; Cut off feedback from I/O pins                                                                       ; On                 ;      ;    ;             ;
+; Report Combined Fast/Slow Timing                                                                     ; Off                ;      ;    ;             ;
+; Ignore Clock Settings                                                                                ; Off                ;      ;    ;             ;
+; Analyze latches as synchronous elements                                                              ; On                 ;      ;    ;             ;
+; Enable Recovery/Removal analysis                                                                     ; Off                ;      ;    ;             ;
+; Enable Clock Latency                                                                                 ; Off                ;      ;    ;             ;
+; Use TimeQuest Timing Analyzer                                                                        ; Off                ;      ;    ;             ;
+; Minimum Core Junction Temperature                                                                    ; -40                ;      ;    ;             ;
+; Maximum Core Junction Temperature                                                                    ; 100                ;      ;    ;             ;
+; Number of source nodes to report per destination node                                                ; 10                 ;      ;    ;             ;
+; Number of destination nodes to report                                                                ; 10                 ;      ;    ;             ;
+; Number of paths to report                                                                            ; 200                ;      ;    ;             ;
+; Report Minimum Timing Checks                                                                         ; Off                ;      ;    ;             ;
+; Use Fast Timing Models                                                                               ; Off                ;      ;    ;             ;
+; Report IO Paths Separately                                                                           ; Off                ;      ;    ;             ;
+; Perform Multicorner Analysis                                                                         ; On                 ;      ;    ;             ;
+; Reports the worst-case path for each clock domain and analysis                                       ; Off                ;      ;    ;             ;
+; Reports worst-case timing paths for each clock domain and analysis                                   ; Off                ;      ;    ;             ;
+; Specifies the maximum number of worst-case timing paths to report for each clock domain and analysis ; 100                ;      ;    ;             ;
+; Removes common clock path pessimism (CCPP) during slack computation                                  ; Off                ;      ;    ;             ;
+; Output I/O Timing Endpoint                                                                           ; Near End           ;      ;    ;             ;
++------------------------------------------------------------------------------------------------------+--------------------+------+----+-------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Settings Summary                                                                                                                                                             ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; Clock Node Name ; Clock Setting Name ; Type     ; Fmax Requirement ; Early Latency ; Late Latency ; Based on ; Multiply Base Fmax by ; Divide Base Fmax by ; Offset ; Phase offset ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+; clk             ;                    ; User Pin ; None             ; 0.000 ns      ; 0.000 ns     ; --       ; N/A                   ; N/A                 ; N/A    ;              ;
++-----------------+--------------------+----------+------------------+---------------+--------------+----------+-----------------------+---------------------+--------+--------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 2      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clock Setup: 'clk'                                                                                                                                                                                                                                       ;
++-----------------------------------------+-----------------------------------------------------+------------------------+---------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; Slack                                   ; Actual fmax (period)                                ; From                   ; To                  ; From Clock ; To Clock ; Required Setup Relationship ; Required Longest P2P Time ; Actual Longest P2P Time ;
++-----------------------------------------+-----------------------------------------------------+------------------------+---------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+; N/A                                     ; 63.05 MHz ( period = 15.860 ns )                    ; Neuron:T6|calcsum[0]   ; Neuron:T6|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.647 ns               ;
+; N/A                                     ; 63.14 MHz ( period = 15.838 ns )                    ; Neuron:T6|calcsum[7]   ; Neuron:T6|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.605 ns               ;
+; N/A                                     ; 63.30 MHz ( period = 15.797 ns )                    ; Neuron:T6|calcsum[4]   ; Neuron:T6|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.564 ns               ;
+; N/A                                     ; 63.39 MHz ( period = 15.776 ns )                    ; Neuron:T6|calcsum[5]   ; Neuron:T6|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.543 ns               ;
+; N/A                                     ; 63.50 MHz ( period = 15.749 ns )                    ; Neuron:T6|calcsum[0]   ; Neuron:T6|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 15.536 ns               ;
+; N/A                                     ; 63.58 MHz ( period = 15.727 ns )                    ; Neuron:T6|calcsum[7]   ; Neuron:T6|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 15.494 ns               ;
+; N/A                                     ; 63.61 MHz ( period = 15.722 ns )                    ; Neuron:T6|calcsum[9]   ; Neuron:T6|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.489 ns               ;
+; N/A                                     ; 63.66 MHz ( period = 15.708 ns )                    ; Neuron:T6|calcsum[0]   ; Neuron:T6|csum[14]  ; clk        ; clk      ; None                        ; None                      ; 15.495 ns               ;
+; N/A                                     ; 63.75 MHz ( period = 15.686 ns )                    ; Neuron:T6|calcsum[4]   ; Neuron:T6|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 15.453 ns               ;
+; N/A                                     ; 63.75 MHz ( period = 15.686 ns )                    ; Neuron:T6|calcsum[7]   ; Neuron:T6|csum[14]  ; clk        ; clk      ; None                        ; None                      ; 15.453 ns               ;
+; N/A                                     ; 63.83 MHz ( period = 15.667 ns )                    ; Neuron:T6|calcsum[0]   ; Neuron:T6|csum[13]  ; clk        ; clk      ; None                        ; None                      ; 15.454 ns               ;
+; N/A                                     ; 63.84 MHz ( period = 15.665 ns )                    ; Neuron:T6|calcsum[5]   ; Neuron:T6|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 15.432 ns               ;
+; N/A                                     ; 63.92 MHz ( period = 15.645 ns )                    ; Neuron:T6|calcsum[4]   ; Neuron:T6|csum[14]  ; clk        ; clk      ; None                        ; None                      ; 15.412 ns               ;
+; N/A                                     ; 63.92 MHz ( period = 15.645 ns )                    ; Neuron:T6|calcsum[7]   ; Neuron:T6|csum[13]  ; clk        ; clk      ; None                        ; None                      ; 15.412 ns               ;
+; N/A                                     ; 64.00 MHz ( period = 15.626 ns )                    ; Neuron:T6|calcsum[0]   ; Neuron:T6|csum[12]  ; clk        ; clk      ; None                        ; None                      ; 15.413 ns               ;
+; N/A                                     ; 64.00 MHz ( period = 15.624 ns )                    ; Neuron:T6|calcsum[5]   ; Neuron:T6|csum[14]  ; clk        ; clk      ; None                        ; None                      ; 15.391 ns               ;
+; N/A                                     ; 64.06 MHz ( period = 15.611 ns )                    ; Neuron:T6|calcsum[9]   ; Neuron:T6|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 15.378 ns               ;
+; N/A                                     ; 64.09 MHz ( period = 15.604 ns )                    ; Neuron:T6|calcsum[7]   ; Neuron:T6|csum[12]  ; clk        ; clk      ; None                        ; None                      ; 15.371 ns               ;
+; N/A                                     ; 64.09 MHz ( period = 15.604 ns )                    ; Neuron:T6|calcsum[4]   ; Neuron:T6|csum[13]  ; clk        ; clk      ; None                        ; None                      ; 15.371 ns               ;
+; N/A                                     ; 64.16 MHz ( period = 15.585 ns )                    ; Neuron:T6|calcsum[0]   ; Neuron:T6|csum[11]  ; clk        ; clk      ; None                        ; None                      ; 15.372 ns               ;
+; N/A                                     ; 64.17 MHz ( period = 15.583 ns )                    ; Neuron:T6|calcsum[5]   ; Neuron:T6|csum[13]  ; clk        ; clk      ; None                        ; None                      ; 15.350 ns               ;
+; N/A                                     ; 64.19 MHz ( period = 15.579 ns )                    ; Neuron:T6|calcsum[6]   ; Neuron:T6|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.346 ns               ;
+; N/A                                     ; 64.23 MHz ( period = 15.570 ns )                    ; Neuron:T6|calcsum[9]   ; Neuron:T6|csum[14]  ; clk        ; clk      ; None                        ; None                      ; 15.337 ns               ;
+; N/A                                     ; 64.25 MHz ( period = 15.563 ns )                    ; Neuron:T6|calcsum[4]   ; Neuron:T6|csum[12]  ; clk        ; clk      ; None                        ; None                      ; 15.330 ns               ;
+; N/A                                     ; 64.25 MHz ( period = 15.563 ns )                    ; Neuron:T6|calcsum[7]   ; Neuron:T6|csum[11]  ; clk        ; clk      ; None                        ; None                      ; 15.330 ns               ;
+; N/A                                     ; 64.27 MHz ( period = 15.559 ns )                    ; Neuron:T6|calcsum[26]  ; Neuron:T6|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.329 ns               ;
+; N/A                                     ; 64.33 MHz ( period = 15.544 ns )                    ; Neuron:T6|calcsum[22]  ; Neuron:T6|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.314 ns               ;
+; N/A                                     ; 64.33 MHz ( period = 15.544 ns )                    ; Neuron:T6|calcsum[0]   ; Neuron:T6|csum[10]  ; clk        ; clk      ; None                        ; None                      ; 15.331 ns               ;
+; N/A                                     ; 64.34 MHz ( period = 15.542 ns )                    ; Neuron:T6|calcsum[5]   ; Neuron:T6|csum[12]  ; clk        ; clk      ; None                        ; None                      ; 15.309 ns               ;
+; N/A                                     ; 64.37 MHz ( period = 15.535 ns )                    ; Neuron:T5|calcsum[2]   ; Neuron:T5|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.348 ns               ;
+; N/A                                     ; 64.40 MHz ( period = 15.529 ns )                    ; Neuron:T6|calcsum[9]   ; Neuron:T6|csum[13]  ; clk        ; clk      ; None                        ; None                      ; 15.296 ns               ;
+; N/A                                     ; 64.40 MHz ( period = 15.527 ns )                    ; Neuron:T6|calcsum[27]  ; Neuron:T6|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.297 ns               ;
+; N/A                                     ; 64.42 MHz ( period = 15.522 ns )                    ; Neuron:T6|calcsum[4]   ; Neuron:T6|csum[11]  ; clk        ; clk      ; None                        ; None                      ; 15.289 ns               ;
+; N/A                                     ; 64.42 MHz ( period = 15.522 ns )                    ; Neuron:T6|calcsum[7]   ; Neuron:T6|csum[10]  ; clk        ; clk      ; None                        ; None                      ; 15.289 ns               ;
+; N/A                                     ; 64.50 MHz ( period = 15.503 ns )                    ; Neuron:T6|calcsum[0]   ; Neuron:T6|csum[9]   ; clk        ; clk      ; None                        ; None                      ; 15.290 ns               ;
+; N/A                                     ; 64.51 MHz ( period = 15.501 ns )                    ; Neuron:T6|calcsum[5]   ; Neuron:T6|csum[11]  ; clk        ; clk      ; None                        ; None                      ; 15.268 ns               ;
+; N/A                                     ; 64.57 MHz ( period = 15.488 ns )                    ; Neuron:T6|calcsum[9]   ; Neuron:T6|csum[12]  ; clk        ; clk      ; None                        ; None                      ; 15.255 ns               ;
+; N/A                                     ; 64.58 MHz ( period = 15.484 ns )                    ; Neuron:T6|calcsum[30]  ; Neuron:T6|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.254 ns               ;
+; N/A                                     ; 64.60 MHz ( period = 15.481 ns )                    ; Neuron:T6|calcsum[4]   ; Neuron:T6|csum[10]  ; clk        ; clk      ; None                        ; None                      ; 15.248 ns               ;
+; N/A                                     ; 64.60 MHz ( period = 15.481 ns )                    ; Neuron:T6|calcsum[7]   ; Neuron:T6|csum[9]   ; clk        ; clk      ; None                        ; None                      ; 15.248 ns               ;
+; N/A                                     ; 64.65 MHz ( period = 15.468 ns )                    ; Neuron:T6|calcsum[6]   ; Neuron:T6|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 15.235 ns               ;
+; N/A                                     ; 64.67 MHz ( period = 15.462 ns )                    ; Neuron:T6|calcsum[0]   ; Neuron:T6|csum[8]   ; clk        ; clk      ; None                        ; None                      ; 15.249 ns               ;
+; N/A                                     ; 64.68 MHz ( period = 15.461 ns )                    ; Neuron:T5|calcsum[4]   ; Neuron:T5|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.274 ns               ;
+; N/A                                     ; 64.68 MHz ( period = 15.460 ns )                    ; Neuron:T6|calcsum[5]   ; Neuron:T6|csum[10]  ; clk        ; clk      ; None                        ; None                      ; 15.227 ns               ;
+; N/A                                     ; 64.73 MHz ( period = 15.448 ns )                    ; Neuron:T6|calcsum[26]  ; Neuron:T6|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 15.218 ns               ;
+; N/A                                     ; 64.74 MHz ( period = 15.447 ns )                    ; Neuron:T6|calcsum[8]   ; Neuron:T6|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.214 ns               ;
+; N/A                                     ; 64.74 MHz ( period = 15.447 ns )                    ; Neuron:T6|calcsum[9]   ; Neuron:T6|csum[11]  ; clk        ; clk      ; None                        ; None                      ; 15.214 ns               ;
+; N/A                                     ; 64.77 MHz ( period = 15.440 ns )                    ; Neuron:T6|calcsum[4]   ; Neuron:T6|csum[9]   ; clk        ; clk      ; None                        ; None                      ; 15.207 ns               ;
+; N/A                                     ; 64.77 MHz ( period = 15.440 ns )                    ; Neuron:T6|calcsum[7]   ; Neuron:T6|csum[8]   ; clk        ; clk      ; None                        ; None                      ; 15.207 ns               ;
+; N/A                                     ; 64.80 MHz ( period = 15.433 ns )                    ; Neuron:T6|calcsum[22]  ; Neuron:T6|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 15.203 ns               ;
+; N/A                                     ; 64.82 MHz ( period = 15.427 ns )                    ; Neuron:T6|calcsum[6]   ; Neuron:T6|csum[14]  ; clk        ; clk      ; None                        ; None                      ; 15.194 ns               ;
+; N/A                                     ; 64.83 MHz ( period = 15.424 ns )                    ; Neuron:T5|calcsum[2]   ; Neuron:T5|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 15.237 ns               ;
+; N/A                                     ; 64.86 MHz ( period = 15.419 ns )                    ; Neuron:T6|calcsum[1]   ; Neuron:T6|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.186 ns               ;
+; N/A                                     ; 64.86 MHz ( period = 15.419 ns )                    ; Neuron:T6|calcsum[5]   ; Neuron:T6|csum[9]   ; clk        ; clk      ; None                        ; None                      ; 15.186 ns               ;
+; N/A                                     ; 64.87 MHz ( period = 15.416 ns )                    ; Neuron:T6|calcsum[27]  ; Neuron:T6|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 15.186 ns               ;
+; N/A                                     ; 64.90 MHz ( period = 15.409 ns )                    ; Neuron:T6|calcsum[3]   ; Neuron:T6|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.176 ns               ;
+; N/A                                     ; 64.90 MHz ( period = 15.408 ns )                    ; Neuron:T5|calcsum[17]  ; Neuron:T5|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.216 ns               ;
+; N/A                                     ; 64.91 MHz ( period = 15.407 ns )                    ; Neuron:T6|calcsum[26]  ; Neuron:T6|csum[14]  ; clk        ; clk      ; None                        ; None                      ; 15.177 ns               ;
+; N/A                                     ; 64.91 MHz ( period = 15.406 ns )                    ; Neuron:T6|calcsum[9]   ; Neuron:T6|csum[10]  ; clk        ; clk      ; None                        ; None                      ; 15.173 ns               ;
+; N/A                                     ; 64.94 MHz ( period = 15.400 ns )                    ; Neuron:T6|calcsum[24]  ; Neuron:T6|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.170 ns               ;
+; N/A                                     ; 64.94 MHz ( period = 15.399 ns )                    ; Neuron:T6|calcsum[4]   ; Neuron:T6|csum[8]   ; clk        ; clk      ; None                        ; None                      ; 15.166 ns               ;
+; N/A                                     ; 64.95 MHz ( period = 15.397 ns )                    ; Neuron:T6|calcsum[2]   ; Neuron:T6|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.164 ns               ;
+; N/A                                     ; 64.97 MHz ( period = 15.392 ns )                    ; Neuron:T6|calcsum[22]  ; Neuron:T6|csum[14]  ; clk        ; clk      ; None                        ; None                      ; 15.162 ns               ;
+; N/A                                     ; 64.99 MHz ( period = 15.386 ns )                    ; Neuron:T6|calcsum[6]   ; Neuron:T6|csum[13]  ; clk        ; clk      ; None                        ; None                      ; 15.153 ns               ;
+; N/A                                     ; 65.01 MHz ( period = 15.383 ns )                    ; Neuron:T5|calcsum[25]  ; Neuron:T5|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.191 ns               ;
+; N/A                                     ; 65.01 MHz ( period = 15.383 ns )                    ; Neuron:T5|calcsum[2]   ; Neuron:T5|csum[14]  ; clk        ; clk      ; None                        ; None                      ; 15.196 ns               ;
+; N/A                                     ; 65.03 MHz ( period = 15.378 ns )                    ; Neuron:T6|calcsum[5]   ; Neuron:T6|csum[8]   ; clk        ; clk      ; None                        ; None                      ; 15.145 ns               ;
+; N/A                                     ; 65.04 MHz ( period = 15.375 ns )                    ; Neuron:T6|calcsum[27]  ; Neuron:T6|csum[14]  ; clk        ; clk      ; None                        ; None                      ; 15.145 ns               ;
+; N/A                                     ; 65.05 MHz ( period = 15.373 ns )                    ; Neuron:T6|calcsum[30]  ; Neuron:T6|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 15.143 ns               ;
+; N/A                                     ; 65.07 MHz ( period = 15.369 ns )                    ; Neuron:T3|calcsum[27]  ; Neuron:T3|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.147 ns               ;
+; N/A                                     ; 65.08 MHz ( period = 15.366 ns )                    ; Neuron:T6|calcsum[26]  ; Neuron:T6|csum[13]  ; clk        ; clk      ; None                        ; None                      ; 15.136 ns               ;
+; N/A                                     ; 65.08 MHz ( period = 15.365 ns )                    ; Neuron:T6|calcsum[9]   ; Neuron:T6|csum[9]   ; clk        ; clk      ; None                        ; None                      ; 15.132 ns               ;
+; N/A                                     ; 65.14 MHz ( period = 15.351 ns )                    ; Neuron:T6|calcsum[22]  ; Neuron:T6|csum[13]  ; clk        ; clk      ; None                        ; None                      ; 15.121 ns               ;
+; N/A                                     ; 65.15 MHz ( period = 15.350 ns )                    ; Neuron:T5|calcsum[4]   ; Neuron:T5|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 15.163 ns               ;
+; N/A                                     ; 65.17 MHz ( period = 15.345 ns )                    ; Neuron:T6|calcsum[6]   ; Neuron:T6|csum[12]  ; clk        ; clk      ; None                        ; None                      ; 15.112 ns               ;
+; N/A                                     ; 65.18 MHz ( period = 15.342 ns )                    ; Neuron:T5|calcsum[2]   ; Neuron:T5|csum[13]  ; clk        ; clk      ; None                        ; None                      ; 15.155 ns               ;
+; N/A                                     ; 65.21 MHz ( period = 15.336 ns )                    ; Neuron:T6|calcsum[8]   ; Neuron:T6|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 15.103 ns               ;
+; N/A                                     ; 65.21 MHz ( period = 15.334 ns )                    ; Neuron:T6|calcsum[27]  ; Neuron:T6|csum[13]  ; clk        ; clk      ; None                        ; None                      ; 15.104 ns               ;
+; N/A                                     ; 65.22 MHz ( period = 15.332 ns )                    ; Neuron:T6|calcsum[30]  ; Neuron:T6|csum[14]  ; clk        ; clk      ; None                        ; None                      ; 15.102 ns               ;
+; N/A                                     ; 65.24 MHz ( period = 15.329 ns )                    ; Neuron:T5|calcsum[3]   ; Neuron:T5|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.142 ns               ;
+; N/A                                     ; 65.25 MHz ( period = 15.325 ns )                    ; Neuron:T6|calcsum[26]  ; Neuron:T6|csum[12]  ; clk        ; clk      ; None                        ; None                      ; 15.095 ns               ;
+; N/A                                     ; 65.26 MHz ( period = 15.324 ns )                    ; Neuron:T6|calcsum[9]   ; Neuron:T6|csum[8]   ; clk        ; clk      ; None                        ; None                      ; 15.091 ns               ;
+; N/A                                     ; 65.30 MHz ( period = 15.315 ns )                    ; Neuron:T6|calcsum[25]  ; Neuron:T6|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.085 ns               ;
+; N/A                                     ; 65.32 MHz ( period = 15.310 ns )                    ; Neuron:T6|calcsum[22]  ; Neuron:T6|csum[12]  ; clk        ; clk      ; None                        ; None                      ; 15.080 ns               ;
+; N/A                                     ; 65.32 MHz ( period = 15.309 ns )                    ; Neuron:T5|calcsum[4]   ; Neuron:T5|csum[14]  ; clk        ; clk      ; None                        ; None                      ; 15.122 ns               ;
+; N/A                                     ; 65.33 MHz ( period = 15.308 ns )                    ; Neuron:T6|calcsum[1]   ; Neuron:T6|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 15.075 ns               ;
+; N/A                                     ; 65.33 MHz ( period = 15.307 ns )                    ; Neuron:T5|calcsum[24]  ; Neuron:T5|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.115 ns               ;
+; N/A                                     ; 65.34 MHz ( period = 15.304 ns )                    ; Neuron:T6|calcsum[6]   ; Neuron:T6|csum[11]  ; clk        ; clk      ; None                        ; None                      ; 15.071 ns               ;
+; N/A                                     ; 65.36 MHz ( period = 15.301 ns )                    ; Neuron:T5|calcsum[2]   ; Neuron:T5|csum[12]  ; clk        ; clk      ; None                        ; None                      ; 15.114 ns               ;
+; N/A                                     ; 65.37 MHz ( period = 15.298 ns )                    ; Neuron:T6|calcsum[3]   ; Neuron:T6|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 15.065 ns               ;
+; N/A                                     ; 65.37 MHz ( period = 15.297 ns )                    ; Neuron:T5|calcsum[17]  ; Neuron:T5|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 15.105 ns               ;
+; N/A                                     ; 65.38 MHz ( period = 15.295 ns )                    ; Neuron:T6|calcsum[8]   ; Neuron:T6|csum[14]  ; clk        ; clk      ; None                        ; None                      ; 15.062 ns               ;
+; N/A                                     ; 65.39 MHz ( period = 15.293 ns )                    ; Neuron:T6|calcsum[27]  ; Neuron:T6|csum[12]  ; clk        ; clk      ; None                        ; None                      ; 15.063 ns               ;
+; N/A                                     ; 65.40 MHz ( period = 15.291 ns )                    ; Neuron:T6|calcsum[30]  ; Neuron:T6|csum[13]  ; clk        ; clk      ; None                        ; None                      ; 15.061 ns               ;
+; N/A                                     ; 65.41 MHz ( period = 15.289 ns )                    ; Neuron:T6|calcsum[24]  ; Neuron:T6|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 15.059 ns               ;
+; N/A                                     ; 65.42 MHz ( period = 15.286 ns )                    ; Neuron:T6|calcsum[2]   ; Neuron:T6|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 15.053 ns               ;
+; N/A                                     ; 65.43 MHz ( period = 15.284 ns )                    ; Neuron:T6|calcsum[26]  ; Neuron:T6|csum[11]  ; clk        ; clk      ; None                        ; None                      ; 15.054 ns               ;
+; N/A                                     ; 65.44 MHz ( period = 15.282 ns )                    ; Neuron:T6|calcsum[10]  ; Neuron:T6|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.049 ns               ;
+; N/A                                     ; 65.45 MHz ( period = 15.280 ns )                    ; Neuron:T3|calcsum[23]  ; Neuron:T3|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.058 ns               ;
+; N/A                                     ; 65.47 MHz ( period = 15.274 ns )                    ; Neuron:T6|calcsum[28]  ; Neuron:T6|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.044 ns               ;
+; N/A                                     ; 65.48 MHz ( period = 15.272 ns )                    ; Neuron:T5|calcsum[25]  ; Neuron:T5|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 15.080 ns               ;
+; N/A                                     ; 65.49 MHz ( period = 15.269 ns )                    ; Neuron:T6|calcsum[22]  ; Neuron:T6|csum[11]  ; clk        ; clk      ; None                        ; None                      ; 15.039 ns               ;
+; N/A                                     ; 65.50 MHz ( period = 15.268 ns )                    ; Neuron:T5|calcsum[4]   ; Neuron:T5|csum[13]  ; clk        ; clk      ; None                        ; None                      ; 15.081 ns               ;
+; N/A                                     ; 65.50 MHz ( period = 15.267 ns )                    ; Neuron:T6|calcsum[1]   ; Neuron:T6|csum[14]  ; clk        ; clk      ; None                        ; None                      ; 15.034 ns               ;
+; N/A                                     ; 65.51 MHz ( period = 15.264 ns )                    ; Neuron:T3|calcsum[26]  ; Neuron:T3|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.042 ns               ;
+; N/A                                     ; 65.52 MHz ( period = 15.263 ns )                    ; Neuron:T6|calcsum[19]  ; Neuron:T6|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.033 ns               ;
+; N/A                                     ; 65.52 MHz ( period = 15.263 ns )                    ; Neuron:T6|calcsum[6]   ; Neuron:T6|csum[10]  ; clk        ; clk      ; None                        ; None                      ; 15.030 ns               ;
+; N/A                                     ; 65.53 MHz ( period = 15.260 ns )                    ; Neuron:T5|calcsum[2]   ; Neuron:T5|csum[11]  ; clk        ; clk      ; None                        ; None                      ; 15.073 ns               ;
+; N/A                                     ; 65.54 MHz ( period = 15.258 ns )                    ; Neuron:T3|calcsum[27]  ; Neuron:T3|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 15.036 ns               ;
+; N/A                                     ; 65.54 MHz ( period = 15.257 ns )                    ; Neuron:T6|calcsum[3]   ; Neuron:T6|csum[14]  ; clk        ; clk      ; None                        ; None                      ; 15.024 ns               ;
+; N/A                                     ; 65.55 MHz ( period = 15.256 ns )                    ; Neuron:T5|calcsum[17]  ; Neuron:T5|csum[14]  ; clk        ; clk      ; None                        ; None                      ; 15.064 ns               ;
+; N/A                                     ; 65.55 MHz ( period = 15.255 ns )                    ; Neuron:T5|calcsum[19]  ; Neuron:T5|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.063 ns               ;
+; N/A                                     ; 65.56 MHz ( period = 15.254 ns )                    ; Neuron:T3|calcsum[29]  ; Neuron:T3|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.032 ns               ;
+; N/A                                     ; 65.56 MHz ( period = 15.254 ns )                    ; Neuron:T6|calcsum[8]   ; Neuron:T6|csum[13]  ; clk        ; clk      ; None                        ; None                      ; 15.021 ns               ;
+; N/A                                     ; 65.57 MHz ( period = 15.252 ns )                    ; Neuron:T6|calcsum[27]  ; Neuron:T6|csum[11]  ; clk        ; clk      ; None                        ; None                      ; 15.022 ns               ;
+; N/A                                     ; 65.57 MHz ( period = 15.250 ns )                    ; Neuron:T5|calcsum[18]  ; Neuron:T5|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.058 ns               ;
+; N/A                                     ; 65.57 MHz ( period = 15.250 ns )                    ; Neuron:T6|calcsum[30]  ; Neuron:T6|csum[12]  ; clk        ; clk      ; None                        ; None                      ; 15.020 ns               ;
+; N/A                                     ; 65.58 MHz ( period = 15.249 ns )                    ; Neuron:T6|calcsum[12]  ; Neuron:T6|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.016 ns               ;
+; N/A                                     ; 65.58 MHz ( period = 15.248 ns )                    ; Neuron:T6|calcsum[24]  ; Neuron:T6|csum[14]  ; clk        ; clk      ; None                        ; None                      ; 15.018 ns               ;
+; N/A                                     ; 65.60 MHz ( period = 15.245 ns )                    ; Neuron:T6|calcsum[2]   ; Neuron:T6|csum[14]  ; clk        ; clk      ; None                        ; None                      ; 15.012 ns               ;
+; N/A                                     ; 65.60 MHz ( period = 15.243 ns )                    ; Neuron:T6|calcsum[26]  ; Neuron:T6|csum[10]  ; clk        ; clk      ; None                        ; None                      ; 15.013 ns               ;
+; N/A                                     ; 65.64 MHz ( period = 15.234 ns )                    ; Neuron:T6|calcsum[23]  ; Neuron:T6|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.004 ns               ;
+; N/A                                     ; 65.66 MHz ( period = 15.231 ns )                    ; Neuron:T5|calcsum[25]  ; Neuron:T5|csum[14]  ; clk        ; clk      ; None                        ; None                      ; 15.039 ns               ;
+; N/A                                     ; 65.67 MHz ( period = 15.228 ns )                    ; Neuron:T6|calcsum[22]  ; Neuron:T6|csum[10]  ; clk        ; clk      ; None                        ; None                      ; 14.998 ns               ;
+; N/A                                     ; 65.67 MHz ( period = 15.227 ns )                    ; Neuron:T5|calcsum[4]   ; Neuron:T5|csum[12]  ; clk        ; clk      ; None                        ; None                      ; 15.040 ns               ;
+; N/A                                     ; 65.68 MHz ( period = 15.226 ns )                    ; Neuron:T6|calcsum[1]   ; Neuron:T6|csum[13]  ; clk        ; clk      ; None                        ; None                      ; 14.993 ns               ;
+; N/A                                     ; 65.69 MHz ( period = 15.224 ns )                    ; Neuron:T6|calcsum[0]   ; Neuron:T6|csum[7]   ; clk        ; clk      ; None                        ; None                      ; 15.018 ns               ;
+; N/A                                     ; 65.69 MHz ( period = 15.222 ns )                    ; Neuron:T6|calcsum[6]   ; Neuron:T6|csum[9]   ; clk        ; clk      ; None                        ; None                      ; 14.989 ns               ;
+; N/A                                     ; 65.71 MHz ( period = 15.219 ns )                    ; Neuron:T5|calcsum[2]   ; Neuron:T5|csum[10]  ; clk        ; clk      ; None                        ; None                      ; 15.032 ns               ;
+; N/A                                     ; 65.71 MHz ( period = 15.218 ns )                    ; Neuron:T5|calcsum[3]   ; Neuron:T5|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 15.031 ns               ;
+; N/A                                     ; 65.72 MHz ( period = 15.217 ns )                    ; Neuron:T3|calcsum[27]  ; Neuron:T3|csum[14]  ; clk        ; clk      ; None                        ; None                      ; 14.995 ns               ;
+; N/A                                     ; 65.72 MHz ( period = 15.216 ns )                    ; Neuron:T6|calcsum[3]   ; Neuron:T6|csum[13]  ; clk        ; clk      ; None                        ; None                      ; 14.983 ns               ;
+; N/A                                     ; 65.72 MHz ( period = 15.215 ns )                    ; Neuron:T5|calcsum[17]  ; Neuron:T5|csum[13]  ; clk        ; clk      ; None                        ; None                      ; 15.023 ns               ;
+; N/A                                     ; 65.73 MHz ( period = 15.213 ns )                    ; Neuron:T6|calcsum[8]   ; Neuron:T6|csum[12]  ; clk        ; clk      ; None                        ; None                      ; 14.980 ns               ;
+; N/A                                     ; 65.74 MHz ( period = 15.211 ns )                    ; Neuron:T6|calcsum[27]  ; Neuron:T6|csum[10]  ; clk        ; clk      ; None                        ; None                      ; 14.981 ns               ;
+; N/A                                     ; 65.75 MHz ( period = 15.209 ns )                    ; Neuron:T6|calcsum[30]  ; Neuron:T6|csum[11]  ; clk        ; clk      ; None                        ; None                      ; 14.979 ns               ;
+; N/A                                     ; 65.75 MHz ( period = 15.208 ns )                    ; Neuron:T12|calcsum[21] ; Neuron:T12|csum[16] ; clk        ; clk      ; None                        ; None                      ; 14.985 ns               ;
+; N/A                                     ; 65.76 MHz ( period = 15.207 ns )                    ; Neuron:T6|calcsum[24]  ; Neuron:T6|csum[13]  ; clk        ; clk      ; None                        ; None                      ; 14.977 ns               ;
+; N/A                                     ; 65.77 MHz ( period = 15.204 ns )                    ; Neuron:T6|calcsum[25]  ; Neuron:T6|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 14.974 ns               ;
+; N/A                                     ; 65.77 MHz ( period = 15.204 ns )                    ; Neuron:T6|calcsum[2]   ; Neuron:T6|csum[13]  ; clk        ; clk      ; None                        ; None                      ; 14.971 ns               ;
+; N/A                                     ; 65.78 MHz ( period = 15.202 ns )                    ; Neuron:T6|calcsum[26]  ; Neuron:T6|csum[9]   ; clk        ; clk      ; None                        ; None                      ; 14.972 ns               ;
+; N/A                                     ; 65.78 MHz ( period = 15.202 ns )                    ; Neuron:T6|calcsum[7]   ; Neuron:T6|csum[7]   ; clk        ; clk      ; None                        ; None                      ; 14.976 ns               ;
+; N/A                                     ; 65.79 MHz ( period = 15.199 ns )                    ; Neuron:T5|calcsum[26]  ; Neuron:T5|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 15.007 ns               ;
+; N/A                                     ; 65.80 MHz ( period = 15.197 ns )                    ; Neuron:T6|calcsum[16]  ; Neuron:T6|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 14.967 ns               ;
+; N/A                                     ; 65.81 MHz ( period = 15.196 ns )                    ; Neuron:T5|calcsum[24]  ; Neuron:T5|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 15.004 ns               ;
+; N/A                                     ; 65.82 MHz ( period = 15.194 ns )                    ; Neuron:T12|calcsum[6]  ; Neuron:T12|csum[16] ; clk        ; clk      ; None                        ; None                      ; 14.975 ns               ;
+; N/A                                     ; 65.83 MHz ( period = 15.190 ns )                    ; Neuron:T5|calcsum[25]  ; Neuron:T5|csum[13]  ; clk        ; clk      ; None                        ; None                      ; 14.998 ns               ;
+; N/A                                     ; 65.84 MHz ( period = 15.188 ns )                    ; Neuron:T3|calcsum[21]  ; Neuron:T3|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 14.966 ns               ;
+; N/A                                     ; 65.85 MHz ( period = 15.187 ns )                    ; Neuron:T6|calcsum[22]  ; Neuron:T6|csum[9]   ; clk        ; clk      ; None                        ; None                      ; 14.957 ns               ;
+; N/A                                     ; 65.85 MHz ( period = 15.186 ns )                    ; Neuron:T5|calcsum[4]   ; Neuron:T5|csum[11]  ; clk        ; clk      ; None                        ; None                      ; 14.999 ns               ;
+; N/A                                     ; 65.85 MHz ( period = 15.185 ns )                    ; Neuron:T6|calcsum[1]   ; Neuron:T6|csum[12]  ; clk        ; clk      ; None                        ; None                      ; 14.952 ns               ;
+; N/A                                     ; 65.86 MHz ( period = 15.183 ns )                    ; Neuron:T6|calcsum[0]   ; Neuron:T6|csum[6]   ; clk        ; clk      ; None                        ; None                      ; 14.977 ns               ;
+; N/A                                     ; 65.87 MHz ( period = 15.181 ns )                    ; Neuron:T6|calcsum[6]   ; Neuron:T6|csum[8]   ; clk        ; clk      ; None                        ; None                      ; 14.948 ns               ;
+; N/A                                     ; 65.88 MHz ( period = 15.178 ns )                    ; Neuron:T5|calcsum[2]   ; Neuron:T5|csum[9]   ; clk        ; clk      ; None                        ; None                      ; 14.991 ns               ;
+; N/A                                     ; 65.89 MHz ( period = 15.177 ns )                    ; Neuron:T5|calcsum[3]   ; Neuron:T5|csum[14]  ; clk        ; clk      ; None                        ; None                      ; 14.990 ns               ;
+; N/A                                     ; 65.89 MHz ( period = 15.176 ns )                    ; Neuron:T3|calcsum[27]  ; Neuron:T3|csum[13]  ; clk        ; clk      ; None                        ; None                      ; 14.954 ns               ;
+; N/A                                     ; 65.90 MHz ( period = 15.175 ns )                    ; Neuron:T6|calcsum[3]   ; Neuron:T6|csum[12]  ; clk        ; clk      ; None                        ; None                      ; 14.942 ns               ;
+; N/A                                     ; 65.90 MHz ( period = 15.174 ns )                    ; Neuron:T5|calcsum[17]  ; Neuron:T5|csum[12]  ; clk        ; clk      ; None                        ; None                      ; 14.982 ns               ;
+; N/A                                     ; 65.91 MHz ( period = 15.172 ns )                    ; Neuron:T6|calcsum[8]   ; Neuron:T6|csum[11]  ; clk        ; clk      ; None                        ; None                      ; 14.939 ns               ;
+; N/A                                     ; 65.92 MHz ( period = 15.171 ns )                    ; Neuron:T6|calcsum[10]  ; Neuron:T6|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 14.938 ns               ;
+; N/A                                     ; 65.92 MHz ( period = 15.170 ns )                    ; Neuron:T3|calcsum[22]  ; Neuron:T3|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 14.948 ns               ;
+; N/A                                     ; 65.92 MHz ( period = 15.170 ns )                    ; Neuron:T6|calcsum[27]  ; Neuron:T6|csum[9]   ; clk        ; clk      ; None                        ; None                      ; 14.940 ns               ;
+; N/A                                     ; 65.92 MHz ( period = 15.169 ns )                    ; Neuron:T3|calcsum[23]  ; Neuron:T3|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 14.947 ns               ;
+; N/A                                     ; 65.93 MHz ( period = 15.168 ns )                    ; Neuron:T6|calcsum[30]  ; Neuron:T6|csum[10]  ; clk        ; clk      ; None                        ; None                      ; 14.938 ns               ;
+; N/A                                     ; 65.94 MHz ( period = 15.166 ns )                    ; Neuron:T3|calcsum[24]  ; Neuron:T3|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 14.944 ns               ;
+; N/A                                     ; 65.94 MHz ( period = 15.166 ns )                    ; Neuron:T5|calcsum[5]   ; Neuron:T5|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 14.979 ns               ;
+; N/A                                     ; 65.94 MHz ( period = 15.166 ns )                    ; Neuron:T6|calcsum[24]  ; Neuron:T6|csum[12]  ; clk        ; clk      ; None                        ; None                      ; 14.936 ns               ;
+; N/A                                     ; 65.95 MHz ( period = 15.163 ns )                    ; Neuron:T6|calcsum[2]   ; Neuron:T6|csum[12]  ; clk        ; clk      ; None                        ; None                      ; 14.930 ns               ;
+; N/A                                     ; 65.95 MHz ( period = 15.163 ns )                    ; Neuron:T6|calcsum[28]  ; Neuron:T6|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 14.933 ns               ;
+; N/A                                     ; 65.95 MHz ( period = 15.163 ns )                    ; Neuron:T6|calcsum[25]  ; Neuron:T6|csum[14]  ; clk        ; clk      ; None                        ; None                      ; 14.933 ns               ;
+; N/A                                     ; 65.96 MHz ( period = 15.161 ns )                    ; Neuron:T6|calcsum[26]  ; Neuron:T6|csum[8]   ; clk        ; clk      ; None                        ; None                      ; 14.931 ns               ;
+; N/A                                     ; 65.96 MHz ( period = 15.161 ns )                    ; Neuron:T6|calcsum[4]   ; Neuron:T6|csum[7]   ; clk        ; clk      ; None                        ; None                      ; 14.935 ns               ;
+; N/A                                     ; 65.96 MHz ( period = 15.161 ns )                    ; Neuron:T6|calcsum[7]   ; Neuron:T6|csum[6]   ; clk        ; clk      ; None                        ; None                      ; 14.935 ns               ;
+; N/A                                     ; 65.98 MHz ( period = 15.155 ns )                    ; Neuron:T5|calcsum[24]  ; Neuron:T5|csum[14]  ; clk        ; clk      ; None                        ; None                      ; 14.963 ns               ;
+; N/A                                     ; 65.99 MHz ( period = 15.153 ns )                    ; Neuron:T3|calcsum[26]  ; Neuron:T3|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 14.931 ns               ;
+; N/A                                     ; 66.00 MHz ( period = 15.152 ns )                    ; Neuron:T6|calcsum[19]  ; Neuron:T6|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 14.922 ns               ;
+; N/A                                     ; 66.00 MHz ( period = 15.151 ns )                    ; Neuron:T6|calcsum[20]  ; Neuron:T6|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 14.921 ns               ;
+; N/A                                     ; 66.01 MHz ( period = 15.149 ns )                    ; Neuron:T5|calcsum[25]  ; Neuron:T5|csum[12]  ; clk        ; clk      ; None                        ; None                      ; 14.957 ns               ;
+; N/A                                     ; 66.02 MHz ( period = 15.146 ns )                    ; Neuron:T6|calcsum[14]  ; Neuron:T6|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 14.913 ns               ;
+; N/A                                     ; 66.02 MHz ( period = 15.146 ns )                    ; Neuron:T6|calcsum[22]  ; Neuron:T6|csum[8]   ; clk        ; clk      ; None                        ; None                      ; 14.916 ns               ;
+; N/A                                     ; 66.03 MHz ( period = 15.145 ns )                    ; Neuron:T5|calcsum[4]   ; Neuron:T5|csum[10]  ; clk        ; clk      ; None                        ; None                      ; 14.958 ns               ;
+; N/A                                     ; 66.03 MHz ( period = 15.144 ns )                    ; Neuron:T6|calcsum[1]   ; Neuron:T6|csum[11]  ; clk        ; clk      ; None                        ; None                      ; 14.911 ns               ;
+; N/A                                     ; 66.03 MHz ( period = 15.144 ns )                    ; Neuron:T5|calcsum[19]  ; Neuron:T5|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 14.952 ns               ;
+; N/A                                     ; 66.04 MHz ( period = 15.143 ns )                    ; Neuron:T3|calcsum[29]  ; Neuron:T3|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 14.921 ns               ;
+; N/A                                     ; 66.04 MHz ( period = 15.142 ns )                    ; Neuron:T6|calcsum[0]   ; Neuron:T6|csum[5]   ; clk        ; clk      ; None                        ; None                      ; 14.936 ns               ;
+; N/A                                     ; 66.05 MHz ( period = 15.140 ns )                    ; Neuron:T6|calcsum[5]   ; Neuron:T6|csum[7]   ; clk        ; clk      ; None                        ; None                      ; 14.914 ns               ;
+; N/A                                     ; 66.05 MHz ( period = 15.139 ns )                    ; Neuron:T5|calcsum[30]  ; Neuron:T5|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 14.947 ns               ;
+; N/A                                     ; 66.05 MHz ( period = 15.139 ns )                    ; Neuron:T5|calcsum[18]  ; Neuron:T5|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 14.947 ns               ;
+; N/A                                     ; 66.06 MHz ( period = 15.138 ns )                    ; Neuron:T6|calcsum[17]  ; Neuron:T6|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 14.908 ns               ;
+; N/A                                     ; 66.06 MHz ( period = 15.138 ns )                    ; Neuron:T6|calcsum[12]  ; Neuron:T6|csum[15]  ; clk        ; clk      ; None                        ; None                      ; 14.905 ns               ;
+; N/A                                     ; 66.06 MHz ( period = 15.137 ns )                    ; Neuron:T5|calcsum[6]   ; Neuron:T5|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 14.950 ns               ;
+; N/A                                     ; 66.06 MHz ( period = 15.137 ns )                    ; Neuron:T5|calcsum[2]   ; Neuron:T5|csum[8]   ; clk        ; clk      ; None                        ; None                      ; 14.950 ns               ;
+; N/A                                     ; 66.07 MHz ( period = 15.136 ns )                    ; Neuron:T5|calcsum[3]   ; Neuron:T5|csum[13]  ; clk        ; clk      ; None                        ; None                      ; 14.949 ns               ;
+; N/A                                     ; 66.07 MHz ( period = 15.135 ns )                    ; Neuron:T6|calcsum[15]  ; Neuron:T6|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 14.902 ns               ;
+; N/A                                     ; 66.07 MHz ( period = 15.135 ns )                    ; Neuron:T3|calcsum[27]  ; Neuron:T3|csum[12]  ; clk        ; clk      ; None                        ; None                      ; 14.913 ns               ;
+; N/A                                     ; 66.08 MHz ( period = 15.134 ns )                    ; Neuron:T6|calcsum[3]   ; Neuron:T6|csum[11]  ; clk        ; clk      ; None                        ; None                      ; 14.901 ns               ;
+; N/A                                     ; 66.08 MHz ( period = 15.133 ns )                    ; Neuron:T5|calcsum[17]  ; Neuron:T5|csum[11]  ; clk        ; clk      ; None                        ; None                      ; 14.941 ns               ;
+; N/A                                     ; 66.09 MHz ( period = 15.131 ns )                    ; Neuron:T6|calcsum[8]   ; Neuron:T6|csum[10]  ; clk        ; clk      ; None                        ; None                      ; 14.898 ns               ;
+; N/A                                     ; 66.09 MHz ( period = 15.130 ns )                    ; Neuron:T6|calcsum[10]  ; Neuron:T6|csum[14]  ; clk        ; clk      ; None                        ; None                      ; 14.897 ns               ;
+; N/A                                     ; 66.10 MHz ( period = 15.129 ns )                    ; Neuron:T3|calcsum[3]   ; Neuron:T3|csum[16]  ; clk        ; clk      ; None                        ; None                      ; 14.902 ns               ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;                        ;                     ;            ;          ;                             ;                           ;                         ;
++-----------------------------------------+-----------------------------------------------------+------------------------+---------------------+------------+----------+-----------------------------+---------------------------+-------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+; tsu                                                                                                                                                     ;
++-----------------------------------------+-----------------------------------------------------+------------+------+--------------------------+----------+
+; Slack                                   ; Required tsu                                        ; Actual tsu ; From ; To                       ; To Clock ;
++-----------------------------------------+-----------------------------------------------------+------------+------+--------------------------+----------+
+; N/A                                     ; None                                                ; 8.954 ns   ; rst  ; Neuron:T6|calcsum[31]    ; clk      ;
+; N/A                                     ; None                                                ; 8.737 ns   ; rst  ; Neuron:T6|calcsum[30]    ; clk      ;
+; N/A                                     ; None                                                ; 8.737 ns   ; rst  ; Neuron:T6|calcsum[28]    ; clk      ;
+; N/A                                     ; None                                                ; 8.737 ns   ; rst  ; Neuron:T6|calcsum[29]    ; clk      ;
+; N/A                                     ; None                                                ; 8.737 ns   ; rst  ; Neuron:T6|calcsum[22]    ; clk      ;
+; N/A                                     ; None                                                ; 8.737 ns   ; rst  ; Neuron:T6|calcsum[27]    ; clk      ;
+; N/A                                     ; None                                                ; 8.737 ns   ; rst  ; Neuron:T6|calcsum[26]    ; clk      ;
+; N/A                                     ; None                                                ; 8.737 ns   ; rst  ; Neuron:T6|calcsum[24]    ; clk      ;
+; N/A                                     ; None                                                ; 8.737 ns   ; rst  ; Neuron:T6|calcsum[23]    ; clk      ;
+; N/A                                     ; None                                                ; 8.737 ns   ; rst  ; Neuron:T6|calcsum[25]    ; clk      ;
+; N/A                                     ; None                                                ; 8.737 ns   ; rst  ; Neuron:T6|calcsum[19]    ; clk      ;
+; N/A                                     ; None                                                ; 8.737 ns   ; rst  ; Neuron:T6|calcsum[16]    ; clk      ;
+; N/A                                     ; None                                                ; 8.737 ns   ; rst  ; Neuron:T6|calcsum[20]    ; clk      ;
+; N/A                                     ; None                                                ; 8.737 ns   ; rst  ; Neuron:T6|calcsum[21]    ; clk      ;
+; N/A                                     ; None                                                ; 8.737 ns   ; rst  ; Neuron:T6|calcsum[17]    ; clk      ;
+; N/A                                     ; None                                                ; 8.737 ns   ; rst  ; Neuron:T6|calcsum[18]    ; clk      ;
+; N/A                                     ; None                                                ; 8.713 ns   ; rst  ; Neuron:T6|calcsum[2]     ; clk      ;
+; N/A                                     ; None                                                ; 8.713 ns   ; rst  ; Neuron:T6|calcsum[3]     ; clk      ;
+; N/A                                     ; None                                                ; 8.713 ns   ; rst  ; Neuron:T6|calcsum[9]     ; clk      ;
+; N/A                                     ; None                                                ; 8.713 ns   ; rst  ; Neuron:T6|calcsum[7]     ; clk      ;
+; N/A                                     ; None                                                ; 8.713 ns   ; rst  ; Neuron:T6|calcsum[5]     ; clk      ;
+; N/A                                     ; None                                                ; 8.713 ns   ; rst  ; Neuron:T6|calcsum[4]     ; clk      ;
+; N/A                                     ; None                                                ; 8.713 ns   ; rst  ; Neuron:T6|calcsum[6]     ; clk      ;
+; N/A                                     ; None                                                ; 8.713 ns   ; rst  ; Neuron:T6|calcsum[8]     ; clk      ;
+; N/A                                     ; None                                                ; 8.713 ns   ; rst  ; Neuron:T6|calcsum[10]    ; clk      ;
+; N/A                                     ; None                                                ; 8.713 ns   ; rst  ; Neuron:T6|calcsum[12]    ; clk      ;
+; N/A                                     ; None                                                ; 8.713 ns   ; rst  ; Neuron:T6|calcsum[14]    ; clk      ;
+; N/A                                     ; None                                                ; 8.713 ns   ; rst  ; Neuron:T6|calcsum[15]    ; clk      ;
+; N/A                                     ; None                                                ; 8.713 ns   ; rst  ; Neuron:T6|calcsum[11]    ; clk      ;
+; N/A                                     ; None                                                ; 8.713 ns   ; rst  ; Neuron:T6|calcsum[13]    ; clk      ;
+; N/A                                     ; None                                                ; 8.713 ns   ; rst  ; Neuron:T6|calcsum[1]     ; clk      ;
+; N/A                                     ; None                                                ; 8.534 ns   ; rst  ; Neuron:T6|output[-10]    ; clk      ;
+; N/A                                     ; None                                                ; 8.534 ns   ; rst  ; Neuron:T6|output[-8]     ; clk      ;
+; N/A                                     ; None                                                ; 8.534 ns   ; rst  ; Neuron:T6|output[-16]    ; clk      ;
+; N/A                                     ; None                                                ; 8.481 ns   ; rst  ; Neuron:T7|etapa[1]       ; clk      ;
+; N/A                                     ; None                                                ; 8.481 ns   ; rst  ; Neuron:T7|etapa[31]      ; clk      ;
+; N/A                                     ; None                                                ; 8.481 ns   ; rst  ; Neuron:T7|etapa[0]       ; clk      ;
+; N/A                                     ; None                                                ; 8.372 ns   ; rst  ; Neuron:T7|csum[-9]       ; clk      ;
+; N/A                                     ; None                                                ; 8.372 ns   ; rst  ; Neuron:T7|csum[-10]      ; clk      ;
+; N/A                                     ; None                                                ; 8.372 ns   ; rst  ; Neuron:T7|csum[-11]      ; clk      ;
+; N/A                                     ; None                                                ; 8.372 ns   ; rst  ; Neuron:T7|csum[-12]      ; clk      ;
+; N/A                                     ; None                                                ; 8.372 ns   ; rst  ; Neuron:T7|csum[-13]      ; clk      ;
+; N/A                                     ; None                                                ; 8.372 ns   ; rst  ; Neuron:T7|csum[-14]      ; clk      ;
+; N/A                                     ; None                                                ; 8.372 ns   ; rst  ; Neuron:T7|csum[-15]      ; clk      ;
+; N/A                                     ; None                                                ; 8.372 ns   ; rst  ; Neuron:T7|csum[-16]      ; clk      ;
+; N/A                                     ; None                                                ; 8.311 ns   ; rst  ; Neuron:T6|output[0]      ; clk      ;
+; N/A                                     ; None                                                ; 8.193 ns   ; rst  ; Neuron:T5|output[-8]     ; clk      ;
+; N/A                                     ; None                                                ; 8.193 ns   ; rst  ; Neuron:T5|output[-4]     ; clk      ;
+; N/A                                     ; None                                                ; 8.193 ns   ; rst  ; Neuron:T5|output[-14]    ; clk      ;
+; N/A                                     ; None                                                ; 8.193 ns   ; rst  ; Neuron:T5|output[-15]    ; clk      ;
+; N/A                                     ; None                                                ; 8.193 ns   ; rst  ; Neuron:T5|output[-12]    ; clk      ;
+; N/A                                     ; None                                                ; 8.193 ns   ; rst  ; Neuron:T5|output[-16]    ; clk      ;
+; N/A                                     ; None                                                ; 8.165 ns   ; rst  ; Neuron:T7|output[-6]     ; clk      ;
+; N/A                                     ; None                                                ; 8.165 ns   ; rst  ; Neuron:T7|output[-9]     ; clk      ;
+; N/A                                     ; None                                                ; 8.149 ns   ; rst  ; Neuron:T7|calcsum[9]     ; clk      ;
+; N/A                                     ; None                                                ; 8.149 ns   ; rst  ; Neuron:T7|calcsum[13]    ; clk      ;
+; N/A                                     ; None                                                ; 8.149 ns   ; rst  ; Neuron:T7|calcsum[10]    ; clk      ;
+; N/A                                     ; None                                                ; 8.149 ns   ; rst  ; Neuron:T7|calcsum[12]    ; clk      ;
+; N/A                                     ; None                                                ; 8.149 ns   ; rst  ; Neuron:T7|calcsum[11]    ; clk      ;
+; N/A                                     ; None                                                ; 8.149 ns   ; rst  ; Neuron:T7|calcsum[8]     ; clk      ;
+; N/A                                     ; None                                                ; 8.149 ns   ; rst  ; Neuron:T7|calcsum[15]    ; clk      ;
+; N/A                                     ; None                                                ; 8.149 ns   ; rst  ; Neuron:T7|calcsum[14]    ; clk      ;
+; N/A                                     ; None                                                ; 8.149 ns   ; rst  ; Neuron:T7|calcsum[4]     ; clk      ;
+; N/A                                     ; None                                                ; 8.149 ns   ; rst  ; Neuron:T7|calcsum[3]     ; clk      ;
+; N/A                                     ; None                                                ; 8.149 ns   ; rst  ; Neuron:T7|calcsum[5]     ; clk      ;
+; N/A                                     ; None                                                ; 8.149 ns   ; rst  ; Neuron:T7|calcsum[2]     ; clk      ;
+; N/A                                     ; None                                                ; 8.149 ns   ; rst  ; Neuron:T7|calcsum[6]     ; clk      ;
+; N/A                                     ; None                                                ; 8.149 ns   ; rst  ; Neuron:T7|calcsum[7]     ; clk      ;
+; N/A                                     ; None                                                ; 8.149 ns   ; rst  ; Neuron:T7|calcsum[1]     ; clk      ;
+; N/A                                     ; None                                                ; 8.126 ns   ; rst  ; Neuron:T7|calcsum[25]    ; clk      ;
+; N/A                                     ; None                                                ; 8.126 ns   ; rst  ; Neuron:T7|calcsum[26]    ; clk      ;
+; N/A                                     ; None                                                ; 8.126 ns   ; rst  ; Neuron:T7|calcsum[24]    ; clk      ;
+; N/A                                     ; None                                                ; 8.126 ns   ; rst  ; Neuron:T7|calcsum[22]    ; clk      ;
+; N/A                                     ; None                                                ; 8.126 ns   ; rst  ; Neuron:T7|calcsum[23]    ; clk      ;
+; N/A                                     ; None                                                ; 8.126 ns   ; rst  ; Neuron:T7|calcsum[30]    ; clk      ;
+; N/A                                     ; None                                                ; 8.126 ns   ; rst  ; Neuron:T7|calcsum[29]    ; clk      ;
+; N/A                                     ; None                                                ; 8.126 ns   ; rst  ; Neuron:T7|calcsum[21]    ; clk      ;
+; N/A                                     ; None                                                ; 8.126 ns   ; rst  ; Neuron:T7|calcsum[27]    ; clk      ;
+; N/A                                     ; None                                                ; 8.126 ns   ; rst  ; Neuron:T7|calcsum[28]    ; clk      ;
+; N/A                                     ; None                                                ; 8.126 ns   ; rst  ; Neuron:T7|calcsum[20]    ; clk      ;
+; N/A                                     ; None                                                ; 8.126 ns   ; rst  ; Neuron:T7|calcsum[18]    ; clk      ;
+; N/A                                     ; None                                                ; 8.126 ns   ; rst  ; Neuron:T7|calcsum[19]    ; clk      ;
+; N/A                                     ; None                                                ; 8.126 ns   ; rst  ; Neuron:T7|calcsum[17]    ; clk      ;
+; N/A                                     ; None                                                ; 8.126 ns   ; rst  ; Neuron:T7|calcsum[16]    ; clk      ;
+; N/A                                     ; None                                                ; 8.118 ns   ; rst  ; Neuron:T7|csum[7]        ; clk      ;
+; N/A                                     ; None                                                ; 8.118 ns   ; rst  ; Neuron:T7|csum[6]        ; clk      ;
+; N/A                                     ; None                                                ; 8.118 ns   ; rst  ; Neuron:T7|csum[5]        ; clk      ;
+; N/A                                     ; None                                                ; 8.118 ns   ; rst  ; Neuron:T7|csum[4]        ; clk      ;
+; N/A                                     ; None                                                ; 8.118 ns   ; rst  ; Neuron:T7|csum[3]        ; clk      ;
+; N/A                                     ; None                                                ; 8.118 ns   ; rst  ; Neuron:T7|csum[2]        ; clk      ;
+; N/A                                     ; None                                                ; 8.118 ns   ; rst  ; Neuron:T7|csum[1]        ; clk      ;
+; N/A                                     ; None                                                ; 8.118 ns   ; rst  ; Neuron:T7|csum[0]        ; clk      ;
+; N/A                                     ; None                                                ; 8.118 ns   ; rst  ; Neuron:T7|csum[-1]       ; clk      ;
+; N/A                                     ; None                                                ; 8.118 ns   ; rst  ; Neuron:T7|csum[-2]       ; clk      ;
+; N/A                                     ; None                                                ; 8.118 ns   ; rst  ; Neuron:T7|csum[-3]       ; clk      ;
+; N/A                                     ; None                                                ; 8.118 ns   ; rst  ; Neuron:T7|csum[-4]       ; clk      ;
+; N/A                                     ; None                                                ; 8.118 ns   ; rst  ; Neuron:T7|csum[-5]       ; clk      ;
+; N/A                                     ; None                                                ; 8.118 ns   ; rst  ; Neuron:T7|csum[-6]       ; clk      ;
+; N/A                                     ; None                                                ; 8.118 ns   ; rst  ; Neuron:T7|csum[-7]       ; clk      ;
+; N/A                                     ; None                                                ; 8.118 ns   ; rst  ; Neuron:T7|csum[-8]       ; clk      ;
+; N/A                                     ; None                                                ; 8.102 ns   ; rst  ; Neuron:T10|calcsum[31]   ; clk      ;
+; N/A                                     ; None                                                ; 8.102 ns   ; rst  ; Neuron:T10|csum[-9]      ; clk      ;
+; N/A                                     ; None                                                ; 8.102 ns   ; rst  ; Neuron:T10|csum[-10]     ; clk      ;
+; N/A                                     ; None                                                ; 8.102 ns   ; rst  ; Neuron:T10|csum[-11]     ; clk      ;
+; N/A                                     ; None                                                ; 8.102 ns   ; rst  ; Neuron:T10|csum[-12]     ; clk      ;
+; N/A                                     ; None                                                ; 8.102 ns   ; rst  ; Neuron:T10|csum[-13]     ; clk      ;
+; N/A                                     ; None                                                ; 8.102 ns   ; rst  ; Neuron:T10|csum[-14]     ; clk      ;
+; N/A                                     ; None                                                ; 8.102 ns   ; rst  ; Neuron:T10|csum[-15]     ; clk      ;
+; N/A                                     ; None                                                ; 8.102 ns   ; rst  ; Neuron:T10|csum[-16]     ; clk      ;
+; N/A                                     ; None                                                ; 8.099 ns   ; rst  ; Neuron:T10|csum[16]      ; clk      ;
+; N/A                                     ; None                                                ; 8.099 ns   ; rst  ; Neuron:T10|csum[11]      ; clk      ;
+; N/A                                     ; None                                                ; 8.099 ns   ; rst  ; Neuron:T10|csum[15]      ; clk      ;
+; N/A                                     ; None                                                ; 8.099 ns   ; rst  ; Neuron:T10|csum[10]      ; clk      ;
+; N/A                                     ; None                                                ; 8.099 ns   ; rst  ; Neuron:T10|csum[12]      ; clk      ;
+; N/A                                     ; None                                                ; 8.099 ns   ; rst  ; Neuron:T10|csum[14]      ; clk      ;
+; N/A                                     ; None                                                ; 8.099 ns   ; rst  ; Neuron:T10|csum[9]       ; clk      ;
+; N/A                                     ; None                                                ; 8.099 ns   ; rst  ; Neuron:T10|csum[13]      ; clk      ;
+; N/A                                     ; None                                                ; 8.099 ns   ; rst  ; Neuron:T10|csum[8]       ; clk      ;
+; N/A                                     ; None                                                ; 8.096 ns   ; rst  ; Neuron:T7|calcsum[31]    ; clk      ;
+; N/A                                     ; None                                                ; 8.096 ns   ; rst  ; Neuron:T7|csum[16]       ; clk      ;
+; N/A                                     ; None                                                ; 8.096 ns   ; rst  ; Neuron:T7|csum[11]       ; clk      ;
+; N/A                                     ; None                                                ; 8.096 ns   ; rst  ; Neuron:T7|csum[10]       ; clk      ;
+; N/A                                     ; None                                                ; 8.096 ns   ; rst  ; Neuron:T7|csum[15]       ; clk      ;
+; N/A                                     ; None                                                ; 8.096 ns   ; rst  ; Neuron:T7|csum[13]       ; clk      ;
+; N/A                                     ; None                                                ; 8.096 ns   ; rst  ; Neuron:T7|csum[14]       ; clk      ;
+; N/A                                     ; None                                                ; 8.096 ns   ; rst  ; Neuron:T7|csum[12]       ; clk      ;
+; N/A                                     ; None                                                ; 8.096 ns   ; rst  ; Neuron:T7|csum[9]        ; clk      ;
+; N/A                                     ; None                                                ; 8.096 ns   ; rst  ; Neuron:T7|calcsum[0]     ; clk      ;
+; N/A                                     ; None                                                ; 8.096 ns   ; rst  ; Neuron:T7|csum[8]        ; clk      ;
+; N/A                                     ; None                                                ; 8.095 ns   ; rst  ; Neuron:T10|calcsum[14]   ; clk      ;
+; N/A                                     ; None                                                ; 8.095 ns   ; rst  ; Neuron:T10|calcsum[8]    ; clk      ;
+; N/A                                     ; None                                                ; 8.095 ns   ; rst  ; Neuron:T10|calcsum[15]   ; clk      ;
+; N/A                                     ; None                                                ; 8.095 ns   ; rst  ; Neuron:T10|calcsum[7]    ; clk      ;
+; N/A                                     ; None                                                ; 8.095 ns   ; rst  ; Neuron:T10|calcsum[4]    ; clk      ;
+; N/A                                     ; None                                                ; 8.095 ns   ; rst  ; Neuron:T10|calcsum[5]    ; clk      ;
+; N/A                                     ; None                                                ; 8.095 ns   ; rst  ; Neuron:T10|calcsum[6]    ; clk      ;
+; N/A                                     ; None                                                ; 8.095 ns   ; rst  ; Neuron:T10|calcsum[9]    ; clk      ;
+; N/A                                     ; None                                                ; 8.095 ns   ; rst  ; Neuron:T10|calcsum[10]   ; clk      ;
+; N/A                                     ; None                                                ; 8.095 ns   ; rst  ; Neuron:T10|calcsum[11]   ; clk      ;
+; N/A                                     ; None                                                ; 8.095 ns   ; rst  ; Neuron:T10|calcsum[12]   ; clk      ;
+; N/A                                     ; None                                                ; 8.095 ns   ; rst  ; Neuron:T10|calcsum[13]   ; clk      ;
+; N/A                                     ; None                                                ; 8.095 ns   ; rst  ; Neuron:T10|calcsum[3]    ; clk      ;
+; N/A                                     ; None                                                ; 8.095 ns   ; rst  ; Neuron:T10|calcsum[2]    ; clk      ;
+; N/A                                     ; None                                                ; 8.095 ns   ; rst  ; Neuron:T10|calcsum[1]    ; clk      ;
+; N/A                                     ; None                                                ; 8.088 ns   ; rst  ; Neuron:T4|inputOLD[6]    ; clk      ;
+; N/A                                     ; None                                                ; 8.088 ns   ; rst  ; Neuron:T4|inputOLD[5]    ; clk      ;
+; N/A                                     ; None                                                ; 8.088 ns   ; rst  ; Neuron:T4|inputOLD[4]    ; clk      ;
+; N/A                                     ; None                                                ; 8.088 ns   ; rst  ; Neuron:T4|inputOLD[3]    ; clk      ;
+; N/A                                     ; None                                                ; 8.088 ns   ; rst  ; Neuron:T4|inputOLD[2]    ; clk      ;
+; N/A                                     ; None                                                ; 8.088 ns   ; rst  ; Neuron:T4|inputOLD2[-8]  ; clk      ;
+; N/A                                     ; None                                                ; 8.088 ns   ; rst  ; Neuron:T4|inputOLD[-16]  ; clk      ;
+; N/A                                     ; None                                                ; 8.076 ns   ; rst  ; Neuron:T4|input[-9]      ; clk      ;
+; N/A                                     ; None                                                ; 8.076 ns   ; rst  ; Neuron:T4|input[-10]     ; clk      ;
+; N/A                                     ; None                                                ; 8.076 ns   ; rst  ; Neuron:T4|input[-11]     ; clk      ;
+; N/A                                     ; None                                                ; 8.076 ns   ; rst  ; Neuron:T4|input[-12]     ; clk      ;
+; N/A                                     ; None                                                ; 8.076 ns   ; rst  ; Neuron:T4|input[-13]     ; clk      ;
+; N/A                                     ; None                                                ; 8.076 ns   ; rst  ; Neuron:T4|input[-14]     ; clk      ;
+; N/A                                     ; None                                                ; 8.076 ns   ; rst  ; Neuron:T4|input[-15]     ; clk      ;
+; N/A                                     ; None                                                ; 8.076 ns   ; rst  ; Neuron:T4|input[-16]     ; clk      ;
+; N/A                                     ; None                                                ; 8.076 ns   ; rst  ; Neuron:T4|inputOLD2[-10] ; clk      ;
+; N/A                                     ; None                                                ; 8.076 ns   ; rst  ; Neuron:T4|inputOLD2[-11] ; clk      ;
+; N/A                                     ; None                                                ; 8.076 ns   ; rst  ; Neuron:T4|inputOLD[-10]  ; clk      ;
+; N/A                                     ; None                                                ; 8.076 ns   ; rst  ; Neuron:T4|inputOLD[-11]  ; clk      ;
+; N/A                                     ; None                                                ; 8.076 ns   ; rst  ; Neuron:T4|inputOLD[-12]  ; clk      ;
+; N/A                                     ; None                                                ; 8.076 ns   ; rst  ; Neuron:T4|inputOLD[-13]  ; clk      ;
+; N/A                                     ; None                                                ; 8.076 ns   ; rst  ; Neuron:T4|inputOLD[-14]  ; clk      ;
+; N/A                                     ; None                                                ; 8.076 ns   ; rst  ; Neuron:T4|inputOLD[-15]  ; clk      ;
+; N/A                                     ; None                                                ; 8.037 ns   ; rst  ; Neuron:T6|output[-3]     ; clk      ;
+; N/A                                     ; None                                                ; 8.037 ns   ; rst  ; Neuron:T6|output[-4]     ; clk      ;
+; N/A                                     ; None                                                ; 8.037 ns   ; rst  ; Neuron:T6|output[-7]     ; clk      ;
+; N/A                                     ; None                                                ; 8.037 ns   ; rst  ; Neuron:T6|output[-6]     ; clk      ;
+; N/A                                     ; None                                                ; 8.033 ns   ; rst  ; Neuron:T4|inputOLD[16]   ; clk      ;
+; N/A                                     ; None                                                ; 8.033 ns   ; rst  ; Neuron:T4|inputOLD2[-7]  ; clk      ;
+; N/A                                     ; None                                                ; 8.033 ns   ; rst  ; Neuron:T4|inputOLD[-7]   ; clk      ;
+; N/A                                     ; None                                                ; 8.029 ns   ; rst  ; Neuron:T6|output[-2]     ; clk      ;
+; N/A                                     ; None                                                ; 8.029 ns   ; rst  ; Neuron:T6|output[-9]     ; clk      ;
+; N/A                                     ; None                                                ; 8.029 ns   ; rst  ; Neuron:T6|output[-5]     ; clk      ;
+; N/A                                     ; None                                                ; 8.029 ns   ; rst  ; Neuron:T6|output[-14]    ; clk      ;
+; N/A                                     ; None                                                ; 8.029 ns   ; rst  ; Neuron:T6|output[-11]    ; clk      ;
+; N/A                                     ; None                                                ; 8.029 ns   ; rst  ; Neuron:T6|output[-12]    ; clk      ;
+; N/A                                     ; None                                                ; 8.029 ns   ; rst  ; Neuron:T6|output[-15]    ; clk      ;
+; N/A                                     ; None                                                ; 8.028 ns   ; rst  ; Neuron:T7|output[-15]    ; clk      ;
+; N/A                                     ; None                                                ; 8.011 ns   ; rst  ; Neuron:T7|output[-5]     ; clk      ;
+; N/A                                     ; None                                                ; 8.011 ns   ; rst  ; Neuron:T7|output[-8]     ; clk      ;
+; N/A                                     ; None                                                ; 8.011 ns   ; rst  ; Neuron:T7|output[-7]     ; clk      ;
+; N/A                                     ; None                                                ; 8.011 ns   ; rst  ; Neuron:T7|output[-2]     ; clk      ;
+; N/A                                     ; None                                                ; 8.011 ns   ; rst  ; Neuron:T7|output[-4]     ; clk      ;
+; N/A                                     ; None                                                ; 8.011 ns   ; rst  ; Neuron:T7|output[-3]     ; clk      ;
+; N/A                                     ; None                                                ; 8.011 ns   ; rst  ; Neuron:T7|output[-11]    ; clk      ;
+; N/A                                     ; None                                                ; 8.011 ns   ; rst  ; Neuron:T7|output[-14]    ; clk      ;
+; N/A                                     ; None                                                ; 8.011 ns   ; rst  ; Neuron:T7|output[-12]    ; clk      ;
+; N/A                                     ; None                                                ; 8.011 ns   ; rst  ; Neuron:T7|output[-16]    ; clk      ;
+; N/A                                     ; None                                                ; 8.009 ns   ; rst  ; Neuron:T4|input[1]       ; clk      ;
+; N/A                                     ; None                                                ; 8.009 ns   ; rst  ; Neuron:T4|input[0]       ; clk      ;
+; N/A                                     ; None                                                ; 8.009 ns   ; rst  ; Neuron:T4|input[2]       ; clk      ;
+; N/A                                     ; None                                                ; 8.009 ns   ; rst  ; Neuron:T4|input[5]       ; clk      ;
+; N/A                                     ; None                                                ; 8.009 ns   ; rst  ; Neuron:T4|input[4]       ; clk      ;
+; N/A                                     ; None                                                ; 8.009 ns   ; rst  ; Neuron:T4|input[3]       ; clk      ;
+; N/A                                     ; None                                                ; 8.009 ns   ; rst  ; Neuron:T4|input[6]       ; clk      ;
+; N/A                                     ; None                                                ; 8.009 ns   ; rst  ; Neuron:T4|input[7]       ; clk      ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;            ;      ;                          ;          ;
++-----------------------------------------+-----------------------------------------------------+------------+------+--------------------------+----------+
+
+
++----------------------------------------------------------------------+
+; tco                                                                  ;
++-------+--------------+------------+--------------+------+------------+
+; Slack ; Required tco ; Actual tco ; From         ; To   ; From Clock ;
++-------+--------------+------------+--------------+------+------------+
+; N/A   ; None         ; 7.099 ns   ; Neuron:T2|y  ; ya2  ; clk        ;
+; N/A   ; None         ; 7.027 ns   ; Neuron:T3|y  ; ya3  ; clk        ;
+; N/A   ; None         ; 6.589 ns   ; Neuron:T4|y  ; ya4  ; clk        ;
+; N/A   ; None         ; 6.538 ns   ; Neuron:T8|y  ; ya8  ; clk        ;
+; N/A   ; None         ; 6.450 ns   ; Neuron:T6|y  ; ya6  ; clk        ;
+; N/A   ; None         ; 6.424 ns   ; Neuron:T7|y  ; ya7  ; clk        ;
+; N/A   ; None         ; 6.405 ns   ; Neuron:T5|y  ; ya5  ; clk        ;
+; N/A   ; None         ; 6.342 ns   ; Neuron:T9|y  ; ya9  ; clk        ;
+; N/A   ; None         ; 6.269 ns   ; Neuron:T11|y ; ya11 ; clk        ;
+; N/A   ; None         ; 6.255 ns   ; Neuron:T1|y  ; ya1  ; clk        ;
+; N/A   ; None         ; 6.165 ns   ; Neuron:T10|y ; ya10 ; clk        ;
+; N/A   ; None         ; 5.909 ns   ; Neuron:T12|y ; ya12 ; clk        ;
++-------+--------------+------------+--------------+------+------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------+
+; th                                                                                                                                                     ;
++-----------------------------------------+-----------------------------------------------------+-----------+------+--------------------------+----------+
+; Minimum Slack                           ; Required th                                         ; Actual th ; From ; To                       ; To Clock ;
++-----------------------------------------+-----------------------------------------------------+-----------+------+--------------------------+----------+
+; N/A                                     ; None                                                ; -2.943 ns ; rst  ; Neuron:T6|input[16]      ; clk      ;
+; N/A                                     ; None                                                ; -2.943 ns ; rst  ; Neuron:T6|input[15]      ; clk      ;
+; N/A                                     ; None                                                ; -2.943 ns ; rst  ; Neuron:T6|input[2]       ; clk      ;
+; N/A                                     ; None                                                ; -2.943 ns ; rst  ; Neuron:T6|input[9]       ; clk      ;
+; N/A                                     ; None                                                ; -2.943 ns ; rst  ; Neuron:T6|input[10]      ; clk      ;
+; N/A                                     ; None                                                ; -2.943 ns ; rst  ; Neuron:T6|input[14]      ; clk      ;
+; N/A                                     ; None                                                ; -2.943 ns ; rst  ; Neuron:T6|input[1]       ; clk      ;
+; N/A                                     ; None                                                ; -2.943 ns ; rst  ; Neuron:T6|input[12]      ; clk      ;
+; N/A                                     ; None                                                ; -2.943 ns ; rst  ; Neuron:T6|input[11]      ; clk      ;
+; N/A                                     ; None                                                ; -2.943 ns ; rst  ; Neuron:T6|input[13]      ; clk      ;
+; N/A                                     ; None                                                ; -2.943 ns ; rst  ; Neuron:T6|input[5]       ; clk      ;
+; N/A                                     ; None                                                ; -2.943 ns ; rst  ; Neuron:T6|input[6]       ; clk      ;
+; N/A                                     ; None                                                ; -2.943 ns ; rst  ; Neuron:T6|input[7]       ; clk      ;
+; N/A                                     ; None                                                ; -2.943 ns ; rst  ; Neuron:T6|input[8]       ; clk      ;
+; N/A                                     ; None                                                ; -2.943 ns ; rst  ; Neuron:T6|input[3]       ; clk      ;
+; N/A                                     ; None                                                ; -2.943 ns ; rst  ; Neuron:T6|input[4]       ; clk      ;
+; N/A                                     ; None                                                ; -2.957 ns ; rst  ; Neuron:T6|inputOLD2[16]  ; clk      ;
+; N/A                                     ; None                                                ; -2.957 ns ; rst  ; Neuron:T6|inputOLD2[15]  ; clk      ;
+; N/A                                     ; None                                                ; -2.957 ns ; rst  ; Neuron:T6|inputOLD2[14]  ; clk      ;
+; N/A                                     ; None                                                ; -2.957 ns ; rst  ; Neuron:T6|inputOLD2[13]  ; clk      ;
+; N/A                                     ; None                                                ; -3.024 ns ; rst  ; Neuron:T6|input[0]       ; clk      ;
+; N/A                                     ; None                                                ; -3.024 ns ; rst  ; Neuron:T6|input[-1]      ; clk      ;
+; N/A                                     ; None                                                ; -3.024 ns ; rst  ; Neuron:T6|input[-2]      ; clk      ;
+; N/A                                     ; None                                                ; -3.024 ns ; rst  ; Neuron:T6|input[-3]      ; clk      ;
+; N/A                                     ; None                                                ; -3.024 ns ; rst  ; Neuron:T6|input[-4]      ; clk      ;
+; N/A                                     ; None                                                ; -3.024 ns ; rst  ; Neuron:T6|input[-5]      ; clk      ;
+; N/A                                     ; None                                                ; -3.024 ns ; rst  ; Neuron:T6|input[-6]      ; clk      ;
+; N/A                                     ; None                                                ; -3.024 ns ; rst  ; Neuron:T6|input[-7]      ; clk      ;
+; N/A                                     ; None                                                ; -3.024 ns ; rst  ; Neuron:T6|input[-8]      ; clk      ;
+; N/A                                     ; None                                                ; -3.024 ns ; rst  ; Neuron:T6|input[-9]      ; clk      ;
+; N/A                                     ; None                                                ; -3.024 ns ; rst  ; Neuron:T6|input[-10]     ; clk      ;
+; N/A                                     ; None                                                ; -3.024 ns ; rst  ; Neuron:T6|input[-11]     ; clk      ;
+; N/A                                     ; None                                                ; -3.024 ns ; rst  ; Neuron:T6|input[-12]     ; clk      ;
+; N/A                                     ; None                                                ; -3.024 ns ; rst  ; Neuron:T6|input[-13]     ; clk      ;
+; N/A                                     ; None                                                ; -3.024 ns ; rst  ; Neuron:T6|input[-14]     ; clk      ;
+; N/A                                     ; None                                                ; -3.024 ns ; rst  ; Neuron:T6|input[-15]     ; clk      ;
+; N/A                                     ; None                                                ; -3.035 ns ; rst  ; Neuron:T6|inputOLD2[12]  ; clk      ;
+; N/A                                     ; None                                                ; -3.035 ns ; rst  ; Neuron:T6|inputOLD2[11]  ; clk      ;
+; N/A                                     ; None                                                ; -3.035 ns ; rst  ; Neuron:T6|inputOLD2[10]  ; clk      ;
+; N/A                                     ; None                                                ; -3.035 ns ; rst  ; Neuron:T6|inputOLD2[9]   ; clk      ;
+; N/A                                     ; None                                                ; -3.035 ns ; rst  ; Neuron:T6|inputOLD2[8]   ; clk      ;
+; N/A                                     ; None                                                ; -3.035 ns ; rst  ; Neuron:T6|inputOLD2[7]   ; clk      ;
+; N/A                                     ; None                                                ; -3.035 ns ; rst  ; Neuron:T6|inputOLD2[6]   ; clk      ;
+; N/A                                     ; None                                                ; -3.035 ns ; rst  ; Neuron:T6|inputOLD2[5]   ; clk      ;
+; N/A                                     ; None                                                ; -3.035 ns ; rst  ; Neuron:T6|inputOLD2[4]   ; clk      ;
+; N/A                                     ; None                                                ; -3.035 ns ; rst  ; Neuron:T6|inputOLD2[3]   ; clk      ;
+; N/A                                     ; None                                                ; -3.035 ns ; rst  ; Neuron:T6|inputOLD2[2]   ; clk      ;
+; N/A                                     ; None                                                ; -3.035 ns ; rst  ; Neuron:T6|inputOLD2[1]   ; clk      ;
+; N/A                                     ; None                                                ; -3.035 ns ; rst  ; Neuron:T6|inputOLD2[0]   ; clk      ;
+; N/A                                     ; None                                                ; -3.035 ns ; rst  ; Neuron:T6|inputOLD2[-1]  ; clk      ;
+; N/A                                     ; None                                                ; -3.035 ns ; rst  ; Neuron:T6|inputOLD2[-2]  ; clk      ;
+; N/A                                     ; None                                                ; -3.035 ns ; rst  ; Neuron:T6|inputOLD2[-3]  ; clk      ;
+; N/A                                     ; None                                                ; -3.061 ns ; rst  ; Neuron:T6|inputOLD[8]    ; clk      ;
+; N/A                                     ; None                                                ; -3.061 ns ; rst  ; Neuron:T6|inputOLD[6]    ; clk      ;
+; N/A                                     ; None                                                ; -3.061 ns ; rst  ; Neuron:T6|inputOLD[5]    ; clk      ;
+; N/A                                     ; None                                                ; -3.061 ns ; rst  ; Neuron:T6|inputOLD2[-4]  ; clk      ;
+; N/A                                     ; None                                                ; -3.061 ns ; rst  ; Neuron:T6|inputOLD2[-5]  ; clk      ;
+; N/A                                     ; None                                                ; -3.061 ns ; rst  ; Neuron:T6|inputOLD2[-6]  ; clk      ;
+; N/A                                     ; None                                                ; -3.061 ns ; rst  ; Neuron:T6|inputOLD2[-9]  ; clk      ;
+; N/A                                     ; None                                                ; -3.061 ns ; rst  ; Neuron:T6|inputOLD2[-10] ; clk      ;
+; N/A                                     ; None                                                ; -3.061 ns ; rst  ; Neuron:T6|inputOLD2[-12] ; clk      ;
+; N/A                                     ; None                                                ; -3.061 ns ; rst  ; Neuron:T6|inputOLD2[-13] ; clk      ;
+; N/A                                     ; None                                                ; -3.061 ns ; rst  ; Neuron:T6|inputOLD2[-14] ; clk      ;
+; N/A                                     ; None                                                ; -3.061 ns ; rst  ; Neuron:T6|inputOLD2[-15] ; clk      ;
+; N/A                                     ; None                                                ; -3.061 ns ; rst  ; Neuron:T6|inputOLD2[-16] ; clk      ;
+; N/A                                     ; None                                                ; -3.115 ns ; rst  ; Neuron:T5|inputOLD2[12]  ; clk      ;
+; N/A                                     ; None                                                ; -3.115 ns ; rst  ; Neuron:T5|inputOLD2[10]  ; clk      ;
+; N/A                                     ; None                                                ; -3.115 ns ; rst  ; Neuron:T5|inputOLD2[11]  ; clk      ;
+; N/A                                     ; None                                                ; -3.115 ns ; rst  ; Neuron:T5|inputOLD2[9]   ; clk      ;
+; N/A                                     ; None                                                ; -3.115 ns ; rst  ; Neuron:T5|inputOLD2[8]   ; clk      ;
+; N/A                                     ; None                                                ; -3.115 ns ; rst  ; Neuron:T5|inputOLD2[7]   ; clk      ;
+; N/A                                     ; None                                                ; -3.115 ns ; rst  ; Neuron:T5|inputOLD2[6]   ; clk      ;
+; N/A                                     ; None                                                ; -3.115 ns ; rst  ; Neuron:T5|inputOLD2[5]   ; clk      ;
+; N/A                                     ; None                                                ; -3.115 ns ; rst  ; Neuron:T5|inputOLD2[4]   ; clk      ;
+; N/A                                     ; None                                                ; -3.115 ns ; rst  ; Neuron:T5|inputOLD2[3]   ; clk      ;
+; N/A                                     ; None                                                ; -3.115 ns ; rst  ; Neuron:T5|inputOLD2[2]   ; clk      ;
+; N/A                                     ; None                                                ; -3.115 ns ; rst  ; Neuron:T5|inputOLD2[1]   ; clk      ;
+; N/A                                     ; None                                                ; -3.115 ns ; rst  ; Neuron:T5|inputOLD2[0]   ; clk      ;
+; N/A                                     ; None                                                ; -3.115 ns ; rst  ; Neuron:T5|inputOLD2[-1]  ; clk      ;
+; N/A                                     ; None                                                ; -3.115 ns ; rst  ; Neuron:T5|inputOLD2[-2]  ; clk      ;
+; N/A                                     ; None                                                ; -3.115 ns ; rst  ; Neuron:T5|inputOLD2[-3]  ; clk      ;
+; N/A                                     ; None                                                ; -3.116 ns ; rst  ; Neuron:T6|inputOLD[-2]   ; clk      ;
+; N/A                                     ; None                                                ; -3.116 ns ; rst  ; Neuron:T6|inputOLD[-3]   ; clk      ;
+; N/A                                     ; None                                                ; -3.116 ns ; rst  ; Neuron:T6|inputOLD[-4]   ; clk      ;
+; N/A                                     ; None                                                ; -3.116 ns ; rst  ; Neuron:T6|inputOLD[-5]   ; clk      ;
+; N/A                                     ; None                                                ; -3.116 ns ; rst  ; Neuron:T6|inputOLD[-6]   ; clk      ;
+; N/A                                     ; None                                                ; -3.116 ns ; rst  ; Neuron:T6|inputOLD2[-8]  ; clk      ;
+; N/A                                     ; None                                                ; -3.116 ns ; rst  ; Neuron:T6|inputOLD[-8]   ; clk      ;
+; N/A                                     ; None                                                ; -3.116 ns ; rst  ; Neuron:T6|inputOLD[-9]   ; clk      ;
+; N/A                                     ; None                                                ; -3.122 ns ; rst  ; Neuron:T5|inputOLD2[-4]  ; clk      ;
+; N/A                                     ; None                                                ; -3.122 ns ; rst  ; Neuron:T5|inputOLD2[-5]  ; clk      ;
+; N/A                                     ; None                                                ; -3.122 ns ; rst  ; Neuron:T5|inputOLD2[-6]  ; clk      ;
+; N/A                                     ; None                                                ; -3.122 ns ; rst  ; Neuron:T5|inputOLD2[-12] ; clk      ;
+; N/A                                     ; None                                                ; -3.122 ns ; rst  ; Neuron:T5|inputOLD2[-13] ; clk      ;
+; N/A                                     ; None                                                ; -3.122 ns ; rst  ; Neuron:T5|inputOLD2[-14] ; clk      ;
+; N/A                                     ; None                                                ; -3.122 ns ; rst  ; Neuron:T5|inputOLD2[-15] ; clk      ;
+; N/A                                     ; None                                                ; -3.122 ns ; rst  ; Neuron:T5|inputOLD2[-16] ; clk      ;
+; N/A                                     ; None                                                ; -3.131 ns ; rst  ; state[10]                ; clk      ;
+; N/A                                     ; None                                                ; -3.152 ns ; rst  ; Neuron:T5|inputOLD2[-10] ; clk      ;
+; N/A                                     ; None                                                ; -3.152 ns ; rst  ; Neuron:T5|inputOLD[-10]  ; clk      ;
+; N/A                                     ; None                                                ; -3.152 ns ; rst  ; Neuron:T5|inputOLD[-11]  ; clk      ;
+; N/A                                     ; None                                                ; -3.152 ns ; rst  ; Neuron:T5|inputOLD[-12]  ; clk      ;
+; N/A                                     ; None                                                ; -3.152 ns ; rst  ; Neuron:T5|inputOLD[-13]  ; clk      ;
+; N/A                                     ; None                                                ; -3.152 ns ; rst  ; Neuron:T5|inputOLD[-14]  ; clk      ;
+; N/A                                     ; None                                                ; -3.152 ns ; rst  ; Neuron:T5|inputOLD[-15]  ; clk      ;
+; N/A                                     ; None                                                ; -3.152 ns ; rst  ; Neuron:T5|inputOLD[-16]  ; clk      ;
+; N/A                                     ; None                                                ; -3.153 ns ; rst  ; Neuron:T5|etapa[1]       ; clk      ;
+; N/A                                     ; None                                                ; -3.155 ns ; rst  ; Neuron:T6|etapa[0]       ; clk      ;
+; N/A                                     ; None                                                ; -3.172 ns ; rst  ; Neuron:T5|inputOLD2[16]  ; clk      ;
+; N/A                                     ; None                                                ; -3.172 ns ; rst  ; Neuron:T5|inputOLD2[15]  ; clk      ;
+; N/A                                     ; None                                                ; -3.172 ns ; rst  ; Neuron:T5|inputOLD2[14]  ; clk      ;
+; N/A                                     ; None                                                ; -3.172 ns ; rst  ; Neuron:T5|inputOLD2[13]  ; clk      ;
+; N/A                                     ; None                                                ; -3.173 ns ; rst  ; Neuron:T2|input[0]       ; clk      ;
+; N/A                                     ; None                                                ; -3.173 ns ; rst  ; Neuron:T2|input[1]       ; clk      ;
+; N/A                                     ; None                                                ; -3.173 ns ; rst  ; Neuron:T2|input[-1]      ; clk      ;
+; N/A                                     ; None                                                ; -3.173 ns ; rst  ; Neuron:T2|input[-2]      ; clk      ;
+; N/A                                     ; None                                                ; -3.173 ns ; rst  ; Neuron:T2|input[-3]      ; clk      ;
+; N/A                                     ; None                                                ; -3.173 ns ; rst  ; Neuron:T2|input[-4]      ; clk      ;
+; N/A                                     ; None                                                ; -3.173 ns ; rst  ; Neuron:T2|input[-5]      ; clk      ;
+; N/A                                     ; None                                                ; -3.173 ns ; rst  ; Neuron:T2|input[-6]      ; clk      ;
+; N/A                                     ; None                                                ; -3.173 ns ; rst  ; Neuron:T2|input[-7]      ; clk      ;
+; N/A                                     ; None                                                ; -3.173 ns ; rst  ; Neuron:T2|input[-8]      ; clk      ;
+; N/A                                     ; None                                                ; -3.173 ns ; rst  ; Neuron:T2|input[-9]      ; clk      ;
+; N/A                                     ; None                                                ; -3.173 ns ; rst  ; Neuron:T2|input[-10]     ; clk      ;
+; N/A                                     ; None                                                ; -3.173 ns ; rst  ; Neuron:T2|input[-11]     ; clk      ;
+; N/A                                     ; None                                                ; -3.173 ns ; rst  ; Neuron:T2|input[-12]     ; clk      ;
+; N/A                                     ; None                                                ; -3.173 ns ; rst  ; Neuron:T2|input[-13]     ; clk      ;
+; N/A                                     ; None                                                ; -3.173 ns ; rst  ; Neuron:T2|input[-14]     ; clk      ;
+; N/A                                     ; None                                                ; -3.189 ns ; rst  ; Neuron:T2|inputOLD[-5]   ; clk      ;
+; N/A                                     ; None                                                ; -3.189 ns ; rst  ; Neuron:T2|inputOLD[-6]   ; clk      ;
+; N/A                                     ; None                                                ; -3.189 ns ; rst  ; Neuron:T2|inputOLD[-7]   ; clk      ;
+; N/A                                     ; None                                                ; -3.189 ns ; rst  ; Neuron:T2|inputOLD[-8]   ; clk      ;
+; N/A                                     ; None                                                ; -3.189 ns ; rst  ; Neuron:T2|inputOLD[-9]   ; clk      ;
+; N/A                                     ; None                                                ; -3.200 ns ; rst  ; Neuron:T5|etapa[0]       ; clk      ;
+; N/A                                     ; None                                                ; -3.228 ns ; rst  ; Neuron:T2|input[-15]     ; clk      ;
+; N/A                                     ; None                                                ; -3.228 ns ; rst  ; Neuron:T2|input[-16]     ; clk      ;
+; N/A                                     ; None                                                ; -3.228 ns ; rst  ; Neuron:T2|inputOLD[-10]  ; clk      ;
+; N/A                                     ; None                                                ; -3.228 ns ; rst  ; Neuron:T2|inputOLD[-11]  ; clk      ;
+; N/A                                     ; None                                                ; -3.228 ns ; rst  ; Neuron:T2|inputOLD[-12]  ; clk      ;
+; N/A                                     ; None                                                ; -3.228 ns ; rst  ; Neuron:T2|inputOLD[-13]  ; clk      ;
+; N/A                                     ; None                                                ; -3.228 ns ; rst  ; Neuron:T2|inputOLD[-14]  ; clk      ;
+; N/A                                     ; None                                                ; -3.228 ns ; rst  ; Neuron:T2|inputOLD[-15]  ; clk      ;
+; N/A                                     ; None                                                ; -3.228 ns ; rst  ; Neuron:T2|inputOLD[-16]  ; clk      ;
+; N/A                                     ; None                                                ; -3.257 ns ; rst  ; Neuron:T3|inputOLD2[-4]  ; clk      ;
+; N/A                                     ; None                                                ; -3.257 ns ; rst  ; Neuron:T3|inputOLD2[-5]  ; clk      ;
+; N/A                                     ; None                                                ; -3.257 ns ; rst  ; Neuron:T3|inputOLD2[-6]  ; clk      ;
+; N/A                                     ; None                                                ; -3.257 ns ; rst  ; Neuron:T3|inputOLD2[-12] ; clk      ;
+; N/A                                     ; None                                                ; -3.257 ns ; rst  ; Neuron:T3|inputOLD2[-13] ; clk      ;
+; N/A                                     ; None                                                ; -3.257 ns ; rst  ; Neuron:T3|inputOLD2[-14] ; clk      ;
+; N/A                                     ; None                                                ; -3.257 ns ; rst  ; Neuron:T3|inputOLD2[-15] ; clk      ;
+; N/A                                     ; None                                                ; -3.257 ns ; rst  ; Neuron:T3|inputOLD2[-16] ; clk      ;
+; N/A                                     ; None                                                ; -3.259 ns ; rst  ; Neuron:T2|inputOLD[9]    ; clk      ;
+; N/A                                     ; None                                                ; -3.259 ns ; rst  ; Neuron:T2|inputOLD[8]    ; clk      ;
+; N/A                                     ; None                                                ; -3.259 ns ; rst  ; Neuron:T2|inputOLD[7]    ; clk      ;
+; N/A                                     ; None                                                ; -3.259 ns ; rst  ; Neuron:T2|inputOLD[6]    ; clk      ;
+; N/A                                     ; None                                                ; -3.259 ns ; rst  ; Neuron:T2|inputOLD[5]    ; clk      ;
+; N/A                                     ; None                                                ; -3.259 ns ; rst  ; Neuron:T2|inputOLD[4]    ; clk      ;
+; N/A                                     ; None                                                ; -3.259 ns ; rst  ; Neuron:T2|inputOLD[3]    ; clk      ;
+; N/A                                     ; None                                                ; -3.259 ns ; rst  ; Neuron:T2|inputOLD[2]    ; clk      ;
+; N/A                                     ; None                                                ; -3.261 ns ; rst  ; Neuron:T2|inputOLD2[16]  ; clk      ;
+; N/A                                     ; None                                                ; -3.261 ns ; rst  ; Neuron:T2|inputOLD2[15]  ; clk      ;
+; N/A                                     ; None                                                ; -3.261 ns ; rst  ; Neuron:T2|inputOLD2[10]  ; clk      ;
+; N/A                                     ; None                                                ; -3.261 ns ; rst  ; Neuron:T2|inputOLD2[14]  ; clk      ;
+; N/A                                     ; None                                                ; -3.261 ns ; rst  ; Neuron:T2|inputOLD2[9]   ; clk      ;
+; N/A                                     ; None                                                ; -3.261 ns ; rst  ; Neuron:T2|inputOLD2[13]  ; clk      ;
+; N/A                                     ; None                                                ; -3.261 ns ; rst  ; Neuron:T2|inputOLD2[12]  ; clk      ;
+; N/A                                     ; None                                                ; -3.261 ns ; rst  ; Neuron:T2|inputOLD2[8]   ; clk      ;
+; N/A                                     ; None                                                ; -3.263 ns ; rst  ; Neuron:T2|input[16]      ; clk      ;
+; N/A                                     ; None                                                ; -3.263 ns ; rst  ; Neuron:T2|input[15]      ; clk      ;
+; N/A                                     ; None                                                ; -3.263 ns ; rst  ; Neuron:T2|input[9]       ; clk      ;
+; N/A                                     ; None                                                ; -3.263 ns ; rst  ; Neuron:T2|input[8]       ; clk      ;
+; N/A                                     ; None                                                ; -3.263 ns ; rst  ; Neuron:T2|input[10]      ; clk      ;
+; N/A                                     ; None                                                ; -3.263 ns ; rst  ; Neuron:T2|output[-12]    ; clk      ;
+; N/A                                     ; None                                                ; -3.263 ns ; rst  ; Neuron:T2|input[14]      ; clk      ;
+; N/A                                     ; None                                                ; -3.263 ns ; rst  ; Neuron:T2|input[13]      ; clk      ;
+; N/A                                     ; None                                                ; -3.263 ns ; rst  ; Neuron:T2|input[12]      ; clk      ;
+; N/A                                     ; None                                                ; -3.263 ns ; rst  ; Neuron:T2|input[11]      ; clk      ;
+; N/A                                     ; None                                                ; -3.263 ns ; rst  ; Neuron:T2|input[3]       ; clk      ;
+; N/A                                     ; None                                                ; -3.263 ns ; rst  ; Neuron:T2|input[6]       ; clk      ;
+; N/A                                     ; None                                                ; -3.263 ns ; rst  ; Neuron:T2|input[5]       ; clk      ;
+; N/A                                     ; None                                                ; -3.263 ns ; rst  ; Neuron:T2|input[4]       ; clk      ;
+; N/A                                     ; None                                                ; -3.263 ns ; rst  ; Neuron:T2|input[2]       ; clk      ;
+; N/A                                     ; None                                                ; -3.263 ns ; rst  ; Neuron:T2|input[7]       ; clk      ;
+; N/A                                     ; None                                                ; -3.286 ns ; rst  ; Neuron:T2|inputOLD2[-9]  ; clk      ;
+; N/A                                     ; None                                                ; -3.286 ns ; rst  ; Neuron:T2|inputOLD2[-10] ; clk      ;
+; N/A                                     ; None                                                ; -3.286 ns ; rst  ; Neuron:T2|inputOLD2[-11] ; clk      ;
+; N/A                                     ; None                                                ; -3.286 ns ; rst  ; Neuron:T2|inputOLD2[-12] ; clk      ;
+; N/A                                     ; None                                                ; -3.286 ns ; rst  ; Neuron:T2|inputOLD2[-13] ; clk      ;
+; N/A                                     ; None                                                ; -3.286 ns ; rst  ; Neuron:T2|inputOLD2[-14] ; clk      ;
+; N/A                                     ; None                                                ; -3.286 ns ; rst  ; Neuron:T2|inputOLD2[-15] ; clk      ;
+; N/A                                     ; None                                                ; -3.286 ns ; rst  ; Neuron:T2|inputOLD2[-16] ; clk      ;
+; N/A                                     ; None                                                ; -3.300 ns ; rst  ; Neuron:T2|output[0]      ; clk      ;
+; N/A                                     ; None                                                ; -3.300 ns ; rst  ; Neuron:T2|output[-14]    ; clk      ;
+; N/A                                     ; None                                                ; -3.300 ns ; rst  ; Neuron:T2|output[-11]    ; clk      ;
+; N/A                                     ; None                                                ; -3.300 ns ; rst  ; Neuron:T2|y              ; clk      ;
+; N/A                                     ; None                                                ; -3.319 ns ; rst  ; Neuron:T2|output[-2]     ; clk      ;
+; N/A                                     ; None                                                ; -3.319 ns ; rst  ; Neuron:T2|output[-4]     ; clk      ;
+; N/A                                     ; None                                                ; -3.319 ns ; rst  ; Neuron:T2|output[-3]     ; clk      ;
+; N/A                                     ; None                                                ; -3.319 ns ; rst  ; Neuron:T2|output[-5]     ; clk      ;
+; N/A                                     ; None                                                ; -3.319 ns ; rst  ; Neuron:T2|output[-8]     ; clk      ;
+; Timing analysis restricted to 200 rows. ; To change the limit use Settings (Assignments menu) ;           ;      ;                          ;          ;
++-----------------------------------------+-----------------------------------------------------+-----------+------+--------------------------+----------+
+
+
++--------------------------+
+; Timing Analyzer Messages ;
++--------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Classic Timing Analyzer
+    Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+    Info: Processing started: Tue May 31 11:09:20 2011
+Info: Command: quartus_tan --read_settings_files=off --write_settings_files=off NeuralNetworks -c NeuralNetworks --timing_analysis_only
+Warning: Found pins functioning as undefined clocks and/or memory enables
+    Info: Assuming node "clk" is an undefined clock
+Info: Clock "clk" has Internal fmax of 63.05 MHz between source register "Neuron:T6|calcsum[0]" and destination register "Neuron:T6|csum[16]" (period= 15.86 ns)
+    Info: + Longest register to register delay is 15.647 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X27_Y20_N19; Fanout = 14; REG Node = 'Neuron:T6|calcsum[0]'
+        Info: 2: + IC(1.831 ns) + CELL(0.060 ns) = 1.891 ns; Loc. = LCCOMB_X10_Y24_N30; Fanout = 2; COMB Node = 'Neuron:T6|Equal6~7'
+        Info: 3: + IC(0.249 ns) + CELL(0.060 ns) = 2.200 ns; Loc. = LCCOMB_X10_Y24_N0; Fanout = 11; COMB Node = 'Neuron:T6|Equal6~8'
+        Info: 4: + IC(0.275 ns) + CELL(0.060 ns) = 2.535 ns; Loc. = LCCOMB_X10_Y24_N8; Fanout = 5; COMB Node = 'Neuron:T6|prodB~5'
+        Info: 5: + IC(0.267 ns) + CELL(0.259 ns) = 3.061 ns; Loc. = LCCOMB_X10_Y24_N28; Fanout = 2; COMB Node = 'Neuron:T6|prodB~17'
+        Info: 6: + IC(0.803 ns) + CELL(0.060 ns) = 3.924 ns; Loc. = LCCOMB_X18_Y24_N20; Fanout = 4; COMB Node = 'Neuron:T6|prodB~18'
+        Info: 7: + IC(1.229 ns) + CELL(0.177 ns) = 5.330 ns; Loc. = LCCOMB_X27_Y20_N28; Fanout = 1; COMB Node = 'Neuron:T6|prodB~34'
+        Info: 8: + IC(1.414 ns) + CELL(0.060 ns) = 6.804 ns; Loc. = LCCOMB_X14_Y24_N30; Fanout = 1; COMB Node = 'Neuron:T6|prodB~35'
+        Info: 9: + IC(0.233 ns) + CELL(0.060 ns) = 7.097 ns; Loc. = LCCOMB_X14_Y24_N24; Fanout = 55; COMB Node = 'Neuron:T6|prodB~36'
+        Info: 10: + IC(1.500 ns) + CELL(2.748 ns) = 11.345 ns; Loc. = DSPMULT_X28_Y21_N0; Fanout = 29; COMB Node = 'Neuron:T6|lpm_mult:Mult0|mult_r2t:auto_generated|mac_mult2~DATAOUT7'
+        Info: 11: + IC(0.000 ns) + CELL(1.460 ns) = 12.805 ns; Loc. = DSPOUT_X28_Y22_N2; Fanout = 2; COMB Node = 'Neuron:T6|lpm_mult:Mult0|mult_r2t:auto_generated|mac_out5~DATAOUT43'
+        Info: 12: + IC(0.407 ns) + CELL(0.502 ns) = 13.714 ns; Loc. = LCCOMB_X27_Y22_N6; Fanout = 2; COMB Node = 'Neuron:T6|Add25~14'
+        Info: 13: + IC(0.000 ns) + CELL(0.041 ns) = 13.755 ns; Loc. = LCCOMB_X27_Y22_N8; Fanout = 2; COMB Node = 'Neuron:T6|Add25~18'
+        Info: 14: + IC(0.000 ns) + CELL(0.041 ns) = 13.796 ns; Loc. = LCCOMB_X27_Y22_N10; Fanout = 2; COMB Node = 'Neuron:T6|Add25~22'
+        Info: 15: + IC(0.000 ns) + CELL(0.041 ns) = 13.837 ns; Loc. = LCCOMB_X27_Y22_N12; Fanout = 2; COMB Node = 'Neuron:T6|Add25~26'
+        Info: 16: + IC(0.000 ns) + CELL(0.240 ns) = 14.077 ns; Loc. = LCCOMB_X27_Y22_N14; Fanout = 2; COMB Node = 'Neuron:T6|Add25~30'
+        Info: 17: + IC(0.000 ns) + CELL(0.041 ns) = 14.118 ns; Loc. = LCCOMB_X27_Y21_N0; Fanout = 2; COMB Node = 'Neuron:T6|Add25~34'
+        Info: 18: + IC(0.000 ns) + CELL(0.041 ns) = 14.159 ns; Loc. = LCCOMB_X27_Y21_N2; Fanout = 2; COMB Node = 'Neuron:T6|Add25~38'
+        Info: 19: + IC(0.000 ns) + CELL(0.041 ns) = 14.200 ns; Loc. = LCCOMB_X27_Y21_N4; Fanout = 2; COMB Node = 'Neuron:T6|Add25~42'
+        Info: 20: + IC(0.000 ns) + CELL(0.041 ns) = 14.241 ns; Loc. = LCCOMB_X27_Y21_N6; Fanout = 2; COMB Node = 'Neuron:T6|Add25~46'
+        Info: 21: + IC(0.000 ns) + CELL(0.041 ns) = 14.282 ns; Loc. = LCCOMB_X27_Y21_N8; Fanout = 2; COMB Node = 'Neuron:T6|Add25~50'
+        Info: 22: + IC(0.000 ns) + CELL(0.041 ns) = 14.323 ns; Loc. = LCCOMB_X27_Y21_N10; Fanout = 2; COMB Node = 'Neuron:T6|Add25~54'
+        Info: 23: + IC(0.000 ns) + CELL(0.041 ns) = 14.364 ns; Loc. = LCCOMB_X27_Y21_N12; Fanout = 2; COMB Node = 'Neuron:T6|Add25~58'
+        Info: 24: + IC(0.000 ns) + CELL(0.111 ns) = 14.475 ns; Loc. = LCCOMB_X27_Y21_N14; Fanout = 2; COMB Node = 'Neuron:T6|Add25~62'
+        Info: 25: + IC(0.000 ns) + CELL(0.041 ns) = 14.516 ns; Loc. = LCCOMB_X27_Y21_N16; Fanout = 2; COMB Node = 'Neuron:T6|Add25~66'
+        Info: 26: + IC(0.000 ns) + CELL(0.041 ns) = 14.557 ns; Loc. = LCCOMB_X27_Y21_N18; Fanout = 2; COMB Node = 'Neuron:T6|Add25~70'
+        Info: 27: + IC(0.000 ns) + CELL(0.041 ns) = 14.598 ns; Loc. = LCCOMB_X27_Y21_N20; Fanout = 2; COMB Node = 'Neuron:T6|Add25~74'
+        Info: 28: + IC(0.000 ns) + CELL(0.041 ns) = 14.639 ns; Loc. = LCCOMB_X27_Y21_N22; Fanout = 2; COMB Node = 'Neuron:T6|Add25~78'
+        Info: 29: + IC(0.000 ns) + CELL(0.041 ns) = 14.680 ns; Loc. = LCCOMB_X27_Y21_N24; Fanout = 2; COMB Node = 'Neuron:T6|Add25~82'
+        Info: 30: + IC(0.000 ns) + CELL(0.041 ns) = 14.721 ns; Loc. = LCCOMB_X27_Y21_N26; Fanout = 2; COMB Node = 'Neuron:T6|Add25~86'
+        Info: 31: + IC(0.000 ns) + CELL(0.041 ns) = 14.762 ns; Loc. = LCCOMB_X27_Y21_N28; Fanout = 2; COMB Node = 'Neuron:T6|Add25~90'
+        Info: 32: + IC(0.000 ns) + CELL(0.231 ns) = 14.993 ns; Loc. = LCCOMB_X27_Y21_N30; Fanout = 2; COMB Node = 'Neuron:T6|Add25~94'
+        Info: 33: + IC(0.000 ns) + CELL(0.041 ns) = 15.034 ns; Loc. = LCCOMB_X27_Y20_N0; Fanout = 2; COMB Node = 'Neuron:T6|Add25~98'
+        Info: 34: + IC(0.000 ns) + CELL(0.041 ns) = 15.075 ns; Loc. = LCCOMB_X27_Y20_N2; Fanout = 2; COMB Node = 'Neuron:T6|Add25~102'
+        Info: 35: + IC(0.000 ns) + CELL(0.041 ns) = 15.116 ns; Loc. = LCCOMB_X27_Y20_N4; Fanout = 2; COMB Node = 'Neuron:T6|Add25~106'
+        Info: 36: + IC(0.000 ns) + CELL(0.041 ns) = 15.157 ns; Loc. = LCCOMB_X27_Y20_N6; Fanout = 2; COMB Node = 'Neuron:T6|Add25~110'
+        Info: 37: + IC(0.000 ns) + CELL(0.041 ns) = 15.198 ns; Loc. = LCCOMB_X27_Y20_N8; Fanout = 2; COMB Node = 'Neuron:T6|Add25~114'
+        Info: 38: + IC(0.000 ns) + CELL(0.041 ns) = 15.239 ns; Loc. = LCCOMB_X27_Y20_N10; Fanout = 2; COMB Node = 'Neuron:T6|Add25~118'
+        Info: 39: + IC(0.000 ns) + CELL(0.041 ns) = 15.280 ns; Loc. = LCCOMB_X27_Y20_N12; Fanout = 2; COMB Node = 'Neuron:T6|Add25~122'
+        Info: 40: + IC(0.000 ns) + CELL(0.111 ns) = 15.391 ns; Loc. = LCCOMB_X27_Y20_N14; Fanout = 1; COMB Node = 'Neuron:T6|Add25~126'
+        Info: 41: + IC(0.000 ns) + CELL(0.144 ns) = 15.535 ns; Loc. = LCCOMB_X27_Y20_N16; Fanout = 1; COMB Node = 'Neuron:T6|Add25~129'
+        Info: 42: + IC(0.000 ns) + CELL(0.112 ns) = 15.647 ns; Loc. = LCFF_X27_Y20_N17; Fanout = 39; REG Node = 'Neuron:T6|csum[16]'
+        Info: Total cell delay = 7.439 ns ( 47.54 % )
+        Info: Total interconnect delay = 8.208 ns ( 52.46 % )
+    Info: - Smallest clock skew is 0.000 ns
+        Info: + Shortest clock path from clock "clk" to destination register is 2.843 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.974 ns) = 0.974 ns; Loc. = PIN_P23; Fanout = 1; CLK Node = 'clk'
+            Info: 2: + IC(0.394 ns) + CELL(0.000 ns) = 1.368 ns; Loc. = CLKCTRL_G3; Fanout = 2222; COMB Node = 'clk~clkctrl'
+            Info: 3: + IC(0.765 ns) + CELL(0.710 ns) = 2.843 ns; Loc. = LCFF_X27_Y20_N17; Fanout = 39; REG Node = 'Neuron:T6|csum[16]'
+            Info: Total cell delay = 1.684 ns ( 59.23 % )
+            Info: Total interconnect delay = 1.159 ns ( 40.77 % )
+        Info: - Longest clock path from clock "clk" to source register is 2.843 ns
+            Info: 1: + IC(0.000 ns) + CELL(0.974 ns) = 0.974 ns; Loc. = PIN_P23; Fanout = 1; CLK Node = 'clk'
+            Info: 2: + IC(0.394 ns) + CELL(0.000 ns) = 1.368 ns; Loc. = CLKCTRL_G3; Fanout = 2222; COMB Node = 'clk~clkctrl'
+            Info: 3: + IC(0.765 ns) + CELL(0.710 ns) = 2.843 ns; Loc. = LCFF_X27_Y20_N19; Fanout = 14; REG Node = 'Neuron:T6|calcsum[0]'
+            Info: Total cell delay = 1.684 ns ( 59.23 % )
+            Info: Total interconnect delay = 1.159 ns ( 40.77 % )
+    Info: + Micro clock to output delay of source is 0.109 ns
+    Info: + Micro setup delay of destination is 0.104 ns
+Info: tsu for register "Neuron:T6|calcsum[31]" (data pin = "rst", clock pin = "clk") is 8.954 ns
+    Info: + Longest pin to register delay is 11.711 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.953 ns) = 0.953 ns; Loc. = PIN_H25; Fanout = 1467; PIN Node = 'rst'
+        Info: 2: + IC(5.889 ns) + CELL(0.060 ns) = 6.902 ns; Loc. = LCCOMB_X23_Y7_N12; Fanout = 780; COMB Node = 'Neuron:T1|csum[-3]~0'
+        Info: 3: + IC(3.951 ns) + CELL(0.858 ns) = 11.711 ns; Loc. = LCFF_X10_Y23_N21; Fanout = 6; REG Node = 'Neuron:T6|calcsum[31]'
+        Info: Total cell delay = 1.871 ns ( 15.98 % )
+        Info: Total interconnect delay = 9.840 ns ( 84.02 % )
+    Info: + Micro setup delay of destination is 0.104 ns
+    Info: - Shortest clock path from clock "clk" to destination register is 2.861 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.974 ns) = 0.974 ns; Loc. = PIN_P23; Fanout = 1; CLK Node = 'clk'
+        Info: 2: + IC(0.394 ns) + CELL(0.000 ns) = 1.368 ns; Loc. = CLKCTRL_G3; Fanout = 2222; COMB Node = 'clk~clkctrl'
+        Info: 3: + IC(0.783 ns) + CELL(0.710 ns) = 2.861 ns; Loc. = LCFF_X10_Y23_N21; Fanout = 6; REG Node = 'Neuron:T6|calcsum[31]'
+        Info: Total cell delay = 1.684 ns ( 58.86 % )
+        Info: Total interconnect delay = 1.177 ns ( 41.14 % )
+Info: tco from clock "clk" to destination pin "ya2" through register "Neuron:T2|y" is 7.099 ns
+    Info: + Longest clock path from clock "clk" to source register is 2.832 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.974 ns) = 0.974 ns; Loc. = PIN_P23; Fanout = 1; CLK Node = 'clk'
+        Info: 2: + IC(0.394 ns) + CELL(0.000 ns) = 1.368 ns; Loc. = CLKCTRL_G3; Fanout = 2222; COMB Node = 'clk~clkctrl'
+        Info: 3: + IC(0.754 ns) + CELL(0.710 ns) = 2.832 ns; Loc. = LCFF_X21_Y19_N3; Fanout = 2; REG Node = 'Neuron:T2|y'
+        Info: Total cell delay = 1.684 ns ( 59.46 % )
+        Info: Total interconnect delay = 1.148 ns ( 40.54 % )
+    Info: + Micro clock to output delay of source is 0.109 ns
+    Info: + Longest register to pin delay is 4.158 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.000 ns) = 0.000 ns; Loc. = LCFF_X21_Y19_N3; Fanout = 2; REG Node = 'Neuron:T2|y'
+        Info: 2: + IC(1.713 ns) + CELL(2.445 ns) = 4.158 ns; Loc. = PIN_N22; Fanout = 0; PIN Node = 'ya2'
+        Info: Total cell delay = 2.445 ns ( 58.80 % )
+        Info: Total interconnect delay = 1.713 ns ( 41.20 % )
+Info: th for register "Neuron:T6|input[16]" (data pin = "rst", clock pin = "clk") is -2.943 ns
+    Info: + Longest clock path from clock "clk" to destination register is 2.847 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.974 ns) = 0.974 ns; Loc. = PIN_P23; Fanout = 1; CLK Node = 'clk'
+        Info: 2: + IC(0.394 ns) + CELL(0.000 ns) = 1.368 ns; Loc. = CLKCTRL_G3; Fanout = 2222; COMB Node = 'clk~clkctrl'
+        Info: 3: + IC(0.769 ns) + CELL(0.710 ns) = 2.847 ns; Loc. = LCFF_X7_Y21_N31; Fanout = 63; REG Node = 'Neuron:T6|input[16]'
+        Info: Total cell delay = 1.684 ns ( 59.15 % )
+        Info: Total interconnect delay = 1.163 ns ( 40.85 % )
+    Info: + Micro hold delay of destination is 0.172 ns
+    Info: - Shortest pin to register delay is 5.962 ns
+        Info: 1: + IC(0.000 ns) + CELL(0.953 ns) = 0.953 ns; Loc. = PIN_H25; Fanout = 1467; PIN Node = 'rst'
+        Info: 2: + IC(4.552 ns) + CELL(0.457 ns) = 5.962 ns; Loc. = LCFF_X7_Y21_N31; Fanout = 63; REG Node = 'Neuron:T6|input[16]'
+        Info: Total cell delay = 1.410 ns ( 23.65 % )
+        Info: Total interconnect delay = 4.552 ns ( 76.35 % )
+Info: Quartus II Classic Timing Analyzer was successful. 0 errors, 1 warning
+    Info: Peak virtual memory: 201 megabytes
+    Info: Processing ended: Tue May 31 11:09:25 2011
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:06
+
+

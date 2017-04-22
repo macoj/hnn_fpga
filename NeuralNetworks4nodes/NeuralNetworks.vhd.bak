@@ -1,0 +1,57 @@
+
+LIBRARY ieee;
+
+USE ieee.std_logic_1164.all;
+USE ieee.std_logic_arith.all;
+
+LIBRARY ieee_proposed;
+USE ieee_proposed.fixed_pkg.all;
+--USE ieee_proposed.standard_textio_additions.all;
+
+ENTITY NeuralNetworks IS 
+GENERIC ( 	n: INTEGER := 3;
+			m: INTEGER := 3;
+			b: INTEGER := 8);
+PORT ( 	x:   IN sfixed(8 downto -8);
+		clk: IN STD_LOGIC;
+		y:   OUT sfixed(2*8+1+1 downto -8*2)
+	 );
+END NeuralNetworks;
+
+ARCHITECTURE NeuralNetworks OF NeuralNetworks IS 
+	TYPE weights IS ARRAY (1 TO n*m) OF sfixed(8 downto -8);
+	TYPE inputs  IS ARRAY (1 TO  m ) OF sfixed(8 downto -8);
+	TYPE outputs IS ARRAY (1 TO  m ) OF sfixed(2*8+1+1 downto -8*2);
+	CONSTANT memory : weights := (  "00000000010000000",
+									"00000000010000000",
+									"00000000010000000",
+									
+									"00000010010000000",
+									"00000010010000000",
+									"00000010000000000",
+									
+									"00000000110000000",
+									"00000000100000000",
+									"00000000110000000");
+BEGIN 
+	PROCESS (clk, x)
+		VARIABLE weight: weights;
+		VARIABLE input : sfixed(8 downto -8);
+		VARIABLE output: sfixed(2*8+1+1 downto -8*2);
+		VARIABLE prod  : sfixed(2*8+1 downto -8*2);
+		VARIABLE acc   : sfixed(2*8+1+1 downto -8*2);
+	BEGIN 
+		IF (clk'EVENT AND clk='1') THEN
+			weight := memory (1 TO n*m);
+		END IF;
+		input := x;
+		acc := (OTHERS => '0');
+		L1: FOR i IN 1 TO n LOOP
+			prod := input*weight(j);
+			--sign := acc(acc'LEFT);
+			acc := prod + acc(2*8+1 downto -8*2);
+		END LOOP L1;
+		output := acc;
+		y <= output;
+	END PROCESS;
+END NeuralNetworks;

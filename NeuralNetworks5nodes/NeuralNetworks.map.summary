@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Thu Jun 02 12:00:07 2011
+Quartus II Version : 9.1 Build 350 03/24/2010 SP 2 SJ Web Edition
+Revision Name : NeuralNetworks
+Top-level Entity Name : ManyNeuralNetworks
+Family : Stratix III
+Logic utilization : N/A
+    Combinational ALUTs : 14,707
+    Memory ALUTs : 0
+    Dedicated logic registers : 4,621
+Total registers : 4621
+Total pins : 22
+Total virtual pins : 0
+Total block memory bits : 0
+DSP block 18-bit elements : 160
+Total PLLs : 0
+Total DLLs : 0
